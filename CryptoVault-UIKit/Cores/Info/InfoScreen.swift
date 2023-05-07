@@ -1,19 +1,19 @@
 //
-//  ViewController.swift
+//  InfoScreen.swift
 //  CryptoVault-UIKit
 //
-//  Created by Cuma Haznedar on 06/05/2023.
+//  Created by Cuma on 07/05/2023.
 //
 
 import UIKit
 
-class ViewController: UIViewController {
+class InfoScreen: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .white
+
         // Do any additional setup after loading the view.
     }
 
-
 }
-
