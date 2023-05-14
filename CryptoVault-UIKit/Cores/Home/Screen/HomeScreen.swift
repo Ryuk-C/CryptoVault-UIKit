@@ -125,5 +125,6 @@ extension HomeScreen: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
 
+        viewModel.search(searchText)
     }
 }

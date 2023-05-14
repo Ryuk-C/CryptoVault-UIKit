@@ -51,7 +51,14 @@ extension HomeViewModel: HomeViewModelProtocol {
     
     func search(_ text: String?) {
         
-       
+        if let text = text, !text.isEmpty {
+            let searchData = self.cryptoList.filter { $0.name.lowercased().contains(text.lowercased()) }
+            self.cryptoList = searchData
+            self.view?.reloadCollectionView()
+        } else {
+            fetchCryptoList()
+        }
+        
     }
     
 }
