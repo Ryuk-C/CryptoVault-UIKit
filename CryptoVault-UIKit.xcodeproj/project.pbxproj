@@ -18,6 +18,7 @@
 		B0095C2C2A1104E800C815A5 /* CryptoMarketModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0095C2B2A1104E800C815A5 /* CryptoMarketModel.swift */; };
 		B0095C2E2A1106D600C815A5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0095C2D2A1106D600C815A5 /* Constants.swift */; };
 		B0095C302A110A9200C815A5 /* CryptoCurrencyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0095C2F2A110A9200C815A5 /* CryptoCurrencyCell.swift */; };
+		B0095C322A11439500C815A5 /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0095C312A11439500C815A5 /* UIViewController+Ext.swift */; };
 		B0682CA82A0EA87600655BA4 /* InfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0682CA72A0EA87600655BA4 /* InfoViewModel.swift */; };
 		B0682CAB2A0EAC2B00655BA4 /* InfoCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0682CAA2A0EAC2B00655BA4 /* InfoCells.swift */; };
 		B0682CAD2A0EB1ED00655BA4 /* CGFloat+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0682CAC2A0EB1ED00655BA4 /* CGFloat+Ext.swift */; };
@@ -51,6 +52,7 @@
 		B0095C2B2A1104E800C815A5 /* CryptoMarketModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoMarketModel.swift; sourceTree = "<group>"; };
 		B0095C2D2A1106D600C815A5 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		B0095C2F2A110A9200C815A5 /* CryptoCurrencyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoCurrencyCell.swift; sourceTree = "<group>"; };
+		B0095C312A11439500C815A5 /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
 		B0682CA72A0EA87600655BA4 /* InfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewModel.swift; sourceTree = "<group>"; };
 		B0682CAA2A0EAC2B00655BA4 /* InfoCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCells.swift; sourceTree = "<group>"; };
 		B0682CAC2A0EB1ED00655BA4 /* CGFloat+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Ext.swift"; sourceTree = "<group>"; };
@@ -232,6 +234,7 @@
 				B0682CAC2A0EB1ED00655BA4 /* CGFloat+Ext.swift */,
 				B0682CAE2A0EB20B00655BA4 /* UIHelper.swift */,
 				B0682CB32A0EB4BE00655BA4 /* UICollectionView+Ext.swift */,
+				B0095C312A11439500C815A5 /* UIViewController+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -402,6 +405,7 @@
 				B0682CAB2A0EAC2B00655BA4 /* InfoCells.swift in Sources */,
 				B0682CB22A0EB29C00655BA4 /* InfoItemsModel.swift in Sources */,
 				B0095C302A110A9200C815A5 /* CryptoCurrencyCell.swift in Sources */,
+				B0095C322A11439500C815A5 /* UIViewController+Ext.swift in Sources */,
 				B0095C272A1103D300C815A5 /* Service.swift in Sources */,
 				B0682CB42A0EB4BE00655BA4 /* UICollectionView+Ext.swift in Sources */,
 				B0095C2E2A1106D600C815A5 /* Constants.swift in Sources */,
@@ -476,7 +480,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -530,7 +534,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -554,6 +558,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -581,6 +586,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

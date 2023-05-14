@@ -8,16 +8,17 @@
 import Foundation
 
 protocol HomeViewModelProtocol {
-    var view: HomeScreenDelegate? {get set}
+    var view: HomeScreenDelegate? { get set }
     func viewDidLoad()
     func fetchCryptoList()
 }
 
 final class HomeViewModel {
-    
+
     var view: HomeScreenDelegate?
     private var service = Service()
     var cryptoList: [CryptoMarketListElement] = []
+
 }
 
 extension HomeViewModel: HomeViewModelProtocol {
@@ -27,30 +28,29 @@ extension HomeViewModel: HomeViewModelProtocol {
         fetchCryptoList()
         view?.configureCollectionView()
     }
-    
+
     func fetchCryptoList() {
         view?.setLoading(isLoading: true)
         service.fetchCryptoMarketList(currency: Currencies.USD, completion: { [weak self] result in
-            guard let self = self else {return}
-        
+            guard let self = self else { return }
+
             switch result {
-                
+
             case .success(let crypto):
                 DispatchQueue.main.async {
                     self.cryptoList.append(contentsOf: crypto ?? [])
-                    //dump(self.cryptoList)
                     self.view?.reloadCollectionView()
                     self.view?.setLoading(isLoading: false)
                 }
-            case .failure(let failure):
+            case .failure(_):
                 self.view?.dataError()
             }
-            
+
         })
     }
-    
+
     func search(_ text: String?) {
-        
+
         if let text = text, !text.isEmpty {
             let searchData = self.cryptoList.filter { $0.name.lowercased().contains(text.lowercased()) }
             self.cryptoList = searchData
@@ -58,7 +58,7 @@ extension HomeViewModel: HomeViewModelProtocol {
         } else {
             fetchCryptoList()
         }
-        
+
     }
-    
+
 }
