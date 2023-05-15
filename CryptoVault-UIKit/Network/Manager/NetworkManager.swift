@@ -16,7 +16,7 @@ extension NetworkManager {
     func sendRequest<T: Codable>(type: T.Type,
         url: String,
         method: HTTPMethod,
-        parameters: Parameters,
+        parameters: Parameters? = nil,
         completion: @escaping ((Result<T, AFError>) -> Void)) {
 
         AF.request(url,

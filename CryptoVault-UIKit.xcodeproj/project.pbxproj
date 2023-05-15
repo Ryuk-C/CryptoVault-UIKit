@@ -19,6 +19,9 @@
 		B0095C2E2A1106D600C815A5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0095C2D2A1106D600C815A5 /* Constants.swift */; };
 		B0095C302A110A9200C815A5 /* CryptoCurrencyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0095C2F2A110A9200C815A5 /* CryptoCurrencyCell.swift */; };
 		B0095C322A11439500C815A5 /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0095C312A11439500C815A5 /* UIViewController+Ext.swift */; };
+		B0095C382A11476000C815A5 /* CryptoDetailScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0095C372A11476000C815A5 /* CryptoDetailScreen.swift */; };
+		B0095C3A2A11477200C815A5 /* CryptoDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0095C392A11477200C815A5 /* CryptoDetailViewModel.swift */; };
+		B0095C3C2A11A95300C815A5 /* CryptoDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0095C3B2A11A95300C815A5 /* CryptoDetailModel.swift */; };
 		B0682CA82A0EA87600655BA4 /* InfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0682CA72A0EA87600655BA4 /* InfoViewModel.swift */; };
 		B0682CAB2A0EAC2B00655BA4 /* InfoCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0682CAA2A0EAC2B00655BA4 /* InfoCells.swift */; };
 		B0682CAD2A0EB1ED00655BA4 /* CGFloat+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0682CAC2A0EB1ED00655BA4 /* CGFloat+Ext.swift */; };
@@ -53,6 +56,9 @@
 		B0095C2D2A1106D600C815A5 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		B0095C2F2A110A9200C815A5 /* CryptoCurrencyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoCurrencyCell.swift; sourceTree = "<group>"; };
 		B0095C312A11439500C815A5 /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
+		B0095C372A11476000C815A5 /* CryptoDetailScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoDetailScreen.swift; sourceTree = "<group>"; };
+		B0095C392A11477200C815A5 /* CryptoDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoDetailViewModel.swift; sourceTree = "<group>"; };
+		B0095C3B2A11A95300C815A5 /* CryptoDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoDetailModel.swift; sourceTree = "<group>"; };
 		B0682CA72A0EA87600655BA4 /* InfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewModel.swift; sourceTree = "<group>"; };
 		B0682CAA2A0EAC2B00655BA4 /* InfoCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCells.swift; sourceTree = "<group>"; };
 		B0682CAC2A0EB1ED00655BA4 /* CGFloat+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Ext.swift"; sourceTree = "<group>"; };
@@ -171,6 +177,41 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
+		B0095C332A1146F700C815A5 /* List */ = {
+			isa = PBXGroup;
+			children = (
+				B0095C1D2A10FEE500C815A5 /* Components */,
+				B0095C1C2A10FEDD00C815A5 /* ViewModel */,
+				B0095C1B2A10FED600C815A5 /* Screen */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
+		B0095C342A11470200C815A5 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				B0095C352A11470A00C815A5 /* Screen */,
+				B0095C362A11471100C815A5 /* ViewModel */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		B0095C352A11470A00C815A5 /* Screen */ = {
+			isa = PBXGroup;
+			children = (
+				B0095C372A11476000C815A5 /* CryptoDetailScreen.swift */,
+			);
+			path = Screen;
+			sourceTree = "<group>";
+		};
+		B0095C362A11471100C815A5 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				B0095C392A11477200C815A5 /* CryptoDetailViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		B0682CA52A0EA85800655BA4 /* Screen */ = {
 			isa = PBXGroup;
 			children = (
@@ -200,6 +241,7 @@
 			children = (
 				B0682CB12A0EB29B00655BA4 /* InfoItemsModel.swift */,
 				B0095C2B2A1104E800C815A5 /* CryptoMarketModel.swift */,
+				B0095C3B2A11A95300C815A5 /* CryptoDetailModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -275,9 +317,8 @@
 		B06FAE192A08419800AF25CE /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				B0095C1D2A10FEE500C815A5 /* Components */,
-				B0095C1C2A10FEDD00C815A5 /* ViewModel */,
-				B0095C1B2A10FED600C815A5 /* Screen */,
+				B0095C342A11470200C815A5 /* Detail */,
+				B0095C332A1146F700C815A5 /* List */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -396,6 +437,7 @@
 				B06FAE022A0837BF00AF25CE /* SplashScreen.swift in Sources */,
 				2BF5790D2A0697410073190A /* AppDelegate.swift in Sources */,
 				B0682CAD2A0EB1ED00655BA4 /* CGFloat+Ext.swift in Sources */,
+				B0095C382A11476000C815A5 /* CryptoDetailScreen.swift in Sources */,
 				B0095C222A11037800C815A5 /* NetworkManager.swift in Sources */,
 				B06FAE242A08420C00AF25CE /* InfoScreen.swift in Sources */,
 				B06FAE1E2A0841D300AF25CE /* HomeScreen.swift in Sources */,
@@ -404,10 +446,12 @@
 				B0095C2C2A1104E800C815A5 /* CryptoMarketModel.swift in Sources */,
 				B0682CAB2A0EAC2B00655BA4 /* InfoCells.swift in Sources */,
 				B0682CB22A0EB29C00655BA4 /* InfoItemsModel.swift in Sources */,
+				B0095C3A2A11477200C815A5 /* CryptoDetailViewModel.swift in Sources */,
 				B0095C302A110A9200C815A5 /* CryptoCurrencyCell.swift in Sources */,
 				B0095C322A11439500C815A5 /* UIViewController+Ext.swift in Sources */,
 				B0095C272A1103D300C815A5 /* Service.swift in Sources */,
 				B0682CB42A0EB4BE00655BA4 /* UICollectionView+Ext.swift in Sources */,
+				B0095C3C2A11A95300C815A5 /* CryptoDetailModel.swift in Sources */,
 				B0095C2E2A1106D600C815A5 /* Constants.swift in Sources */,
 				B06FAE042A0837CC00AF25CE /* SplashViewModel.swift in Sources */,
 				B06FAE222A0841FD00AF25CE /* FavoriteScreen.swift in Sources */,

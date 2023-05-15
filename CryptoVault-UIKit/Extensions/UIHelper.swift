@@ -9,15 +9,15 @@ import UIKit
 
 enum UIHelper {
     static func createHomeFlowLayout() -> UICollectionViewFlowLayout {
-        
+
         let layout = UICollectionViewFlowLayout()
         let itemWidth = CGFloat.dWidth
-        
+
         layout.scrollDirection = .vertical
-        layout.itemSize = CGSize(width: itemWidth - 20, height: itemWidth * 0.17)
-        
+        layout.itemSize = CGSize(width: itemWidth - 20, height: itemWidth * 0.15)
+
         layout.minimumLineSpacing = 15
-        
+
         return layout
     }
 }

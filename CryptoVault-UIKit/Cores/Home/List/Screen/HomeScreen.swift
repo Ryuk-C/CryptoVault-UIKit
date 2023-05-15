@@ -14,24 +14,29 @@ protocol HomeScreenDelegate: AnyObject {
     func configureVC()
     func configureCollectionView()
     func reloadCollectionView()
+    func navigateToDetailScreen(id: String, pageTitle: String, price: String)
 }
 
 final class HomeScreen: UIViewController {
 
     private lazy var searchBar: UISearchBar = {
+
         let searchBar = UISearchBar()
         searchBar.placeholder = "Type here to search"
         searchBar.searchBarStyle = .prominent
         return searchBar
+
     }()
 
     private lazy var allCoinsTitle: UILabel = {
+
         let label = UILabel()
         label.text = "All Coins"
         label.font = UIFont.systemFont(ofSize: 15, weight: UIFont.Weight.bold)
         label.textColor = .black.withAlphaComponent(0.70)
         label.textAlignment = .center
         return label
+
     }()
 
     private var collectionView: UICollectionView!
@@ -44,6 +49,7 @@ final class HomeScreen: UIViewController {
 
         viewModel.view = self
         viewModel.viewDidLoad()
+
     }
 
 }
@@ -76,8 +82,10 @@ extension HomeScreen: HomeScreenDelegate {
         activityIndicator.translatesAutoresizingMaskIntoConstraints = false
 
         activityIndicator.snp.makeConstraints { make in
+
             make.centerX.equalTo(view.snp.centerX)
             make.centerY.equalTo(view.snp.centerY)
+
         }
 
         allCoinsTitle.translatesAutoresizingMaskIntoConstraints = false
@@ -97,6 +105,7 @@ extension HomeScreen: HomeScreenDelegate {
         } else {
             self.activityIndicator.stopAnimating()
         }
+
     }
 
     func dataError() {
@@ -125,6 +134,15 @@ extension HomeScreen: HomeScreenDelegate {
     func reloadCollectionView() {
         collectionView.reloadOnMainThread()
     }
+
+    func navigateToDetailScreen(id: String, pageTitle: String, price: String) {
+
+        DispatchQueue.main.async {
+            self.navigationController?.pushViewController(
+                CryptoDetailScreen(id: id, pageTitle: pageTitle, price: price), animated: true
+            )
+        }
+    }
 }
 
 extension HomeScreen: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -147,11 +165,18 @@ extension HomeScreen: UICollectionViewDelegate, UICollectionViewDataSource {
         )
 
         cell.backgroundColor = .white
-        cell.layer.borderColor = UIColor.gray.withAlphaComponent(0.7).cgColor
-        cell.layer.borderWidth = 1
+        cell.layer.borderColor = UIColor.gray.withAlphaComponent(0.4).cgColor
+        cell.layer.borderWidth = 0.6
         cell.layer.cornerRadius = 8
 
         return cell
+    }
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        viewModel.navigateToDetail(id: viewModel.cryptoList[indexPath.item].id,
+            pageTitle: viewModel.cryptoList[indexPath.item].name,
+            price: String(viewModel.cryptoList[indexPath.item].currentPrice)
+        )
     }
 }
 
@@ -160,5 +185,6 @@ extension HomeScreen: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
 
         viewModel.search(searchText)
+
     }
 }

@@ -69,7 +69,7 @@ extension SplashScreen: SplashScreenDelegate {
     }
 
     func navigateToHome() {
-        
+
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
 
             let tabBar = UITabBarController()
@@ -78,26 +78,26 @@ extension SplashScreen: SplashScreenDelegate {
             let newsViewController = UINavigationController(rootViewController: NewsScreen())
             let favoritesViewController = UINavigationController(rootViewController: FavoriteScreen())
             let infoViewController = UINavigationController(rootViewController: InfoScreen())
-            
+
             homeViewController.title = "Home"
             newsViewController.title = "News"
             favoritesViewController.title = "Favorite"
             infoViewController.title = "Info"
 
             tabBar.setViewControllers([homeViewController, newsViewController, favoritesViewController, infoViewController], animated: false)
-            
+
             guard let items = tabBar.tabBar.items else { return }
-            
+
             let images = ["square.stack.3d.up.fill", "newspaper", "bookmark.fill", "info.circle.fill"]
-            
+
             for x in 0..<images.count {
                 items[x].image = UIImage(systemName: images[x])
             }
-            
+
             tabBar.modalPresentationStyle = .fullScreen
-            
+
             self.present(tabBar, animated: true)
-            
+
         }
     }
 }

@@ -8,7 +8,7 @@
 import Foundation
 
 protocol SplashViewModelProtocol {
-    var view: SplashScreenDelegate? {get set}
+    var view: SplashScreenDelegate? { get set }
     func viewDidLoad()
     func navigateToHomeScreen()
 }
