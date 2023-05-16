@@ -11,7 +11,7 @@ import Foundation
 protocol ServiceProtocol {
 
     func fetchCryptoMarketList(currency: Currencies, completion: @escaping (Result<CryptoMarketList?, AFError>) -> Void)
-    func fetchCryptoDetail(id: String, completion: @escaping (Result<CryptoDetailList?, AFError>) -> Void)
+    func fetchCryptoDetail(id: String, completion: @escaping (Result<CryptoDetailModel?, AFError>) -> Void)
 
 }
 
@@ -40,11 +40,13 @@ final class Service: ServiceProtocol {
 
     }
 
-    func fetchCryptoDetail(id: String, completion: @escaping (Result<CryptoDetailList?, Alamofire.AFError>) -> Void) {
+    func fetchCryptoDetail(id: String, completion: @escaping (Result<CryptoDetailModel?, Alamofire.AFError>) -> Void) {
 
         let url = Constants.DETAILS_BASE_URL + id
+        
+        print(url)
 
-        NetworkManager.shared.sendRequest(type: CryptoDetailList.self, url: url, method: .get,
+        NetworkManager.shared.sendRequest(type: CryptoDetailModel.self, url: url, method: .get, parameters: nil,
             completion: { response in
 
                 switch response {
