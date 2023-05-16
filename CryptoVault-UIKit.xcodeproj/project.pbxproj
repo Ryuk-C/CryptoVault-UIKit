@@ -39,6 +39,11 @@
 		B06FAE202A0841E700AF25CE /* NewsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06FAE1F2A0841E700AF25CE /* NewsScreen.swift */; };
 		B06FAE222A0841FD00AF25CE /* FavoriteScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06FAE212A0841FD00AF25CE /* FavoriteScreen.swift */; };
 		B06FAE242A08420C00AF25CE /* InfoScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06FAE232A08420C00AF25CE /* InfoScreen.swift */; };
+		B0C9DB242A13FA2A00033ACD /* CryptoVaultDatabase.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B0C9DB222A13FA2A00033ACD /* CryptoVaultDatabase.xcdatamodeld */; };
+		B0C9DB2B2A13FAFA00033ACD /* CryptoDB+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C9DB272A13FAFA00033ACD /* CryptoDB+CoreDataClass.swift */; };
+		B0C9DB2C2A13FAFA00033ACD /* CryptoDB+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C9DB282A13FAFA00033ACD /* CryptoDB+CoreDataProperties.swift */; };
+		B0C9DB312A13FB8500033ACD /* NewsDB+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C9DB2F2A13FB8500033ACD /* NewsDB+CoreDataClass.swift */; };
+		B0C9DB322A13FB8500033ACD /* NewsDB+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C9DB302A13FB8500033ACD /* NewsDB+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +77,11 @@
 		B06FAE1F2A0841E700AF25CE /* NewsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsScreen.swift; sourceTree = "<group>"; };
 		B06FAE212A0841FD00AF25CE /* FavoriteScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteScreen.swift; sourceTree = "<group>"; };
 		B06FAE232A08420C00AF25CE /* InfoScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoScreen.swift; sourceTree = "<group>"; };
+		B0C9DB232A13FA2A00033ACD /* CryptoVaultDatabase.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CryptoVaultDatabase.xcdatamodel; sourceTree = "<group>"; };
+		B0C9DB272A13FAFA00033ACD /* CryptoDB+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CryptoDB+CoreDataClass.swift"; sourceTree = "<group>"; };
+		B0C9DB282A13FAFA00033ACD /* CryptoDB+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CryptoDB+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		B0C9DB2F2A13FB8500033ACD /* NewsDB+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NewsDB+CoreDataClass.swift"; sourceTree = "<group>"; };
+		B0C9DB302A13FB8500033ACD /* NewsDB+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NewsDB+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +118,7 @@
 		2BF5790B2A0697410073190A /* CryptoVault-UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				B0C9DB202A13FA0600033ACD /* CoreData */,
 				B0095C282A11048E00C815A5 /* Utilities */,
 				B0095C202A11034D00C815A5 /* Network */,
 				B0682CB02A0EB28E00655BA4 /* Model */,
@@ -349,6 +360,42 @@
 			path = Info;
 			sourceTree = "<group>";
 		};
+		B0C9DB202A13FA0600033ACD /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				B0C9DB2E2A13FB1B00033ACD /* Crypto */,
+				B0C9DB2D2A13FB0A00033ACD /* News */,
+				B0C9DB212A13FA0E00033ACD /* DataModel */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		B0C9DB212A13FA0E00033ACD /* DataModel */ = {
+			isa = PBXGroup;
+			children = (
+				B0C9DB222A13FA2A00033ACD /* CryptoVaultDatabase.xcdatamodeld */,
+			);
+			path = DataModel;
+			sourceTree = "<group>";
+		};
+		B0C9DB2D2A13FB0A00033ACD /* News */ = {
+			isa = PBXGroup;
+			children = (
+				B0C9DB2F2A13FB8500033ACD /* NewsDB+CoreDataClass.swift */,
+				B0C9DB302A13FB8500033ACD /* NewsDB+CoreDataProperties.swift */,
+			);
+			path = News;
+			sourceTree = "<group>";
+		};
+		B0C9DB2E2A13FB1B00033ACD /* Crypto */ = {
+			isa = PBXGroup;
+			children = (
+				B0C9DB272A13FAFA00033ACD /* CryptoDB+CoreDataClass.swift */,
+				B0C9DB282A13FAFA00033ACD /* CryptoDB+CoreDataProperties.swift */,
+			);
+			path = Crypto;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -441,15 +488,20 @@
 				B0095C222A11037800C815A5 /* NetworkManager.swift in Sources */,
 				B06FAE242A08420C00AF25CE /* InfoScreen.swift in Sources */,
 				B06FAE1E2A0841D300AF25CE /* HomeScreen.swift in Sources */,
+				B0C9DB312A13FB8500033ACD /* NewsDB+CoreDataClass.swift in Sources */,
+				B0C9DB2B2A13FAFA00033ACD /* CryptoDB+CoreDataClass.swift in Sources */,
 				B0682CA82A0EA87600655BA4 /* InfoViewModel.swift in Sources */,
+				B0C9DB242A13FA2A00033ACD /* CryptoVaultDatabase.xcdatamodeld in Sources */,
 				2BF5790F2A0697410073190A /* SceneDelegate.swift in Sources */,
 				B0095C2C2A1104E800C815A5 /* CryptoMarketModel.swift in Sources */,
 				B0682CAB2A0EAC2B00655BA4 /* InfoCells.swift in Sources */,
+				B0C9DB322A13FB8500033ACD /* NewsDB+CoreDataProperties.swift in Sources */,
 				B0682CB22A0EB29C00655BA4 /* InfoItemsModel.swift in Sources */,
 				B0095C3A2A11477200C815A5 /* CryptoDetailViewModel.swift in Sources */,
 				B0095C302A110A9200C815A5 /* CryptoCurrencyCell.swift in Sources */,
 				B0095C322A11439500C815A5 /* UIViewController+Ext.swift in Sources */,
 				B0095C272A1103D300C815A5 /* Service.swift in Sources */,
+				B0C9DB2C2A13FAFA00033ACD /* CryptoDB+CoreDataProperties.swift in Sources */,
 				B0682CB42A0EB4BE00655BA4 /* UICollectionView+Ext.swift in Sources */,
 				B0095C3C2A11A95300C815A5 /* CryptoDetailModel.swift in Sources */,
 				B0095C2E2A1106D600C815A5 /* Constants.swift in Sources */,
@@ -724,6 +776,19 @@
 			productName = SnapKit;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		B0C9DB222A13FA2A00033ACD /* CryptoVaultDatabase.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				B0C9DB232A13FA2A00033ACD /* CryptoVaultDatabase.xcdatamodel */,
+			);
+			currentVersion = B0C9DB232A13FA2A00033ACD /* CryptoVaultDatabase.xcdatamodel */;
+			path = CryptoVaultDatabase.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 2BF579012A0697410073190A /* Project object */;
 }
