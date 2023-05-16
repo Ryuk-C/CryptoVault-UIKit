@@ -63,7 +63,7 @@ extension CryptoDetailViewModel: CryptoDetailViewModelProtocol {
                             self.usdPrice = usd
                         }
                         
-                        if let usdChange = i.marketData?.priceChange24HInCurrency?["usd"]{
+                        if let usdChange = i.marketData?.priceChangePercentage24HInCurrency?["usd"]{
                             self.usdPriceChange = usdChange
                         }
                         
@@ -71,7 +71,7 @@ extension CryptoDetailViewModel: CryptoDetailViewModelProtocol {
                             self.eurPrice = eur
                         }
                         
-                        if let eurChange = i.marketData?.priceChange24HInCurrency?["eur"]{
+                        if let eurChange = i.marketData?.priceChangePercentage24HInCurrency?["eur"]{
                             self.eurPriceChange = eurChange
                         }
                         
@@ -79,11 +79,11 @@ extension CryptoDetailViewModel: CryptoDetailViewModelProtocol {
                             self.tryPrice = tryV
                         }
                         
-                        if let tryChange = i.marketData?.priceChange24HInCurrency?["try"]{
+                        if let tryChange = i.marketData?.priceChangePercentage24HInCurrency?["try"]{
                             self.tryPriceChange = tryChange
                         }
                     }
-                    //self.view?.reloadCollectionView()
+
                     self.view?.setLoading(isLoading: false)
                     self.view?.prepareFavButton()
                     self.view?.createComponents()

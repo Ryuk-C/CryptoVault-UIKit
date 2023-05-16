@@ -28,7 +28,7 @@ final class CryptoDetailScreen: UIViewController {
         let stackView = UIStackView()
         stackView.axis = NSLayoutConstraint.Axis.horizontal
         stackView.distribution = UIStackView.Distribution.equalSpacing
-        stackView.spacing = 2.0
+        stackView.spacing = 5.0
         stackView.alignment = UIStackView.Alignment.center
         stackView.backgroundColor = .white
         stackView.clipsToBounds = true
@@ -74,7 +74,7 @@ final class CryptoDetailScreen: UIViewController {
     private lazy var cryptoNameLabel: UILabel = {
         
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 25, weight: UIFont.Weight.bold)
+        label.font = UIFont.systemFont(ofSize: 24, weight: UIFont.Weight.bold)
         label.textColor = .black
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -438,7 +438,6 @@ final class CryptoDetailScreen: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-    
 
     private let scrollView: UIScrollView = {
         let view = UIScrollView()
@@ -451,10 +450,10 @@ final class CryptoDetailScreen: UIViewController {
         view.axis = .vertical
         view.spacing = 0
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.isLayoutMarginsRelativeArrangement = true
-        view.layoutMargins = UIEdgeInsets(top: 0, left: 0, bottom: 30, right: 0)
         return view
     }()
+    
+    private lazy var activityIndicator = UIActivityIndicatorView()
     
     init(id: String, pageTitle: String, price: String, viewModel: CryptoDetailViewModel = CryptoDetailViewModel()) {
         self.id = id
@@ -482,20 +481,27 @@ extension CryptoDetailScreen: CryptoDetailDelegate {
 
         title = pageTitle
         view.backgroundColor = UIColor(named: "BackgroundColor")
+        
+        view.addSubview(activityIndicator)
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
 
-        view.addSubview(horizontalRankStackView)
+        activityIndicator.snp.makeConstraints { make in
+            make.centerX.equalTo(view.snp.centerX)
+            make.centerY.equalTo(view.snp.centerY)
+        }
                         
-        horizontalRankStackView.addArrangedSubview(cryptoImage)
-
     }
 
     func setLoading(isLoading: Bool) {
-
-
+        if isLoading {
+            self.activityIndicator.startAnimating()
+        } else {
+            self.activityIndicator.stopAnimating()
+        }
     }
 
     func dataError() {
-
+        self.errorMessage(title: "Error", message: "Oops! Something went wrong, Please try again.")
     }
 
     func prepareFavButton() {
@@ -518,7 +524,7 @@ extension CryptoDetailScreen: CryptoDetailDelegate {
     }
 
     func createComponents() {
-
+        
         var imageUrl = ""
 
         for index in viewModel.cryptoDetailList {
@@ -535,89 +541,11 @@ extension CryptoDetailScreen: CryptoDetailDelegate {
         
         cryptoImage.kf.setImage(with: URL(string: imageUrl))
         
-        horizontalRankStackView.addArrangedSubview(firstVerticalStackView)
-        horizontalRankStackView.addArrangedSubview(secondVerticalStackView)
-
-        let screenHeight = CGFloat.dHeight
-
-        horizontalRankStackView.snp.makeConstraints { make in
-
-            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(20)
-            make.leading.equalTo(view.snp.leading).offset(20)
-            make.trailing.equalTo(view.snp.trailing).inset(20)
-            make.height.equalTo(screenHeight * 0.14)
-
-        }
-
-        cryptoImage.snp.makeConstraints { make in
-
-            make.centerY.equalTo(horizontalRankStackView.snp.centerY)
-            make.leading.equalTo(horizontalRankStackView.snp.leading).offset(10)
-            make.height.equalTo(70)
-            make.width.equalTo(70)
-
-        }
-
-        firstVerticalStackView.addArrangedSubview(cryptoNameLabel)
-        firstVerticalStackView.addArrangedSubview(cryptoSymbolLabel)
-        
-        secondVerticalStackView.addArrangedSubview(rankImage)
-        secondVerticalStackView.addArrangedSubview(rankLabel)
-
-        firstVerticalStackView.snp.makeConstraints { make in
-
-            make.leading.equalTo(cryptoImage.snp.trailing).offset(10)
-            make.centerY.equalTo(horizontalRankStackView.snp.centerY)
-
-        }
-        
-        secondVerticalStackView.snp.makeConstraints { make in
-
-            make.leading.equalTo(firstVerticalStackView.snp.trailing).offset(10)
-            make.trailing.equalTo(view.snp.trailing).inset(30)
-            make.centerY.equalTo(horizontalRankStackView.snp.centerY)
-
-        }
-        
-        rankImage.snp.makeConstraints { make in
-
-            make.width.equalTo(55)
-            make.height.equalTo(35)
-            
-        }
-        
-        rankLabel.snp.makeConstraints { make in
-
-            make.centerX.equalTo(secondVerticalStackView.snp.centerX)
-
-        }
-        
-        verticalCurrentPriceStackView.addArrangedSubview(horizontalUsdStackView)
-        verticalCurrentPriceStackView.addArrangedSubview(horizontalEurStackView)
-        verticalCurrentPriceStackView.addArrangedSubview(horizontalTryStackView)
-        
         usdPriceLabel.text = String(format: "%.2f", viewModel.usdPrice) + "$"
-        horizontalUsdStackView.addArrangedSubview(usdLabel)
-        horizontalUsdStackView.addArrangedSubview(usdPriceLabel)
-        
         eurPriceLabel.text = String(format: "%.2f", viewModel.eurPrice) + "€"
-        horizontalEurStackView.addArrangedSubview(eurLabel)
-        horizontalEurStackView.addArrangedSubview(eurPriceLabel)
-        
-        horizontalEurStackView.snp.makeConstraints {make in
-            
-            make.top.equalTo(horizontalUsdStackView.snp.bottom).offset(10)
-
-        }
-        
         tryPriceLabel.text = String(format: "%.2f", viewModel.tryPrice) + "₺"
-        horizontalTryStackView.addArrangedSubview(tryLabel)
-        horizontalTryStackView.addArrangedSubview(tryPriceLabel)
-        
-        verticalPriceChangeStackView.addArrangedSubview(horizontalUsdChangeStackView)
-        verticalPriceChangeStackView.addArrangedSubview(horizontalEurChangeStackView)
-        verticalPriceChangeStackView.addArrangedSubview(horizontalTryChangeStackView)
-        
+
+
         usdPriceChangeLabel.text = String(format: "%.2f", viewModel.usdPriceChange) + "%"
         
         if usdPriceChangeLabel.text?.first == "-" {
@@ -626,31 +554,23 @@ extension CryptoDetailScreen: CryptoDetailDelegate {
             usdPriceChangeLabel.textColor = .systemGreen
         }
         
-        horizontalUsdChangeStackView.addArrangedSubview(usdChangeLabel)
-        horizontalUsdChangeStackView.addArrangedSubview(usdPriceChangeLabel)
-        
         eurPriceChangeLabel.text = String(format: "%.2f", viewModel.eurPriceChange) + "%"
+        
         if eurPriceChangeLabel.text?.first == "-" {
             eurPriceChangeLabel.textColor = .systemRed
         }else{
             eurPriceChangeLabel.textColor = .systemGreen
         }
-        horizontalEurChangeStackView.addArrangedSubview(eurChangeLabel)
-        horizontalEurChangeStackView.addArrangedSubview(eurPriceChangeLabel)
         
         tryPriceChangeLabel.text = String(format: "%.2f", viewModel.tryPriceChange) + "%"
+        
         if tryPriceChangeLabel.text?.first == "-" {
             tryPriceChangeLabel.textColor = .systemRed
         }else{
             tryPriceChangeLabel.textColor = .systemGreen
         }
-        horizontalTryChangeStackView.addArrangedSubview(tryChangeLabel)
-        horizontalTryChangeStackView.addArrangedSubview(tryPriceChangeLabel)
-        
-        verticalDescriptionStackView.addArrangedSubview(detailDescriptionLabel)
         
         setupScroolView()
-        
     }
     
     func setupScroolView() {
@@ -659,35 +579,16 @@ extension CryptoDetailScreen: CryptoDetailDelegate {
         scrollView.addSubview(scrollStackViewContainer)
         scrollView.showsVerticalScrollIndicator = true
         
-        let margins = view.layoutMarginsGuide
-
-        NSLayoutConstraint.activate([
-
-            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            scrollView.topAnchor.constraint(equalTo: margins.topAnchor),
-            scrollView.bottomAnchor.constraint(equalTo: margins.bottomAnchor)
-        ])
-        
-        /*scrollView.snp.makeConstraints { make  in
+        scrollView.snp.makeConstraints { make  in
             
             make.top.equalTo(view.layoutMarginsGuide.snp.top)
             make.bottom.equalTo(view.layoutMarginsGuide.snp.bottom)
             make.leading.equalTo(view.snp.leading)
             make.trailing.equalTo(view.snp.trailing)
             
-        }*/
+        }
         
-        NSLayoutConstraint.activate([
-
-            scrollStackViewContainer.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
-            scrollStackViewContainer.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
-            scrollStackViewContainer.topAnchor.constraint(equalTo: scrollView.topAnchor),
-            scrollStackViewContainer.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
-            scrollStackViewContainer.widthAnchor.constraint(equalTo: scrollView.widthAnchor)
-        ])
-        
-        /*scrollStackViewContainer.snp.makeConstraints {make in
+        scrollStackViewContainer.snp.makeConstraints {make in
             
             make.top.equalTo(scrollView.snp.top)
             make.bottom.equalTo(scrollView.snp.bottom)
@@ -695,7 +596,7 @@ extension CryptoDetailScreen: CryptoDetailDelegate {
             make.trailing.equalTo(scrollView.snp.trailing)
             make.width.equalTo(scrollView.snp.width)
             
-        }*/
+        }
         
         configureContainerView()
 
@@ -703,44 +604,109 @@ extension CryptoDetailScreen: CryptoDetailDelegate {
     
     func configureContainerView() {
         
-        scrollStackViewContainer.addArrangedSubview(horizontalRankStackView)
+        horizontalRankStackView.addArrangedSubview(cryptoImage)
         
-        scrollStackViewContainer.setCustomSpacing(25, after: horizontalRankStackView)
+        cryptoImage.snp.makeConstraints { make in
 
-        scrollStackViewContainer.addArrangedSubview(currentPriceLabel)
-        
-        currentPriceLabel.snp.makeConstraints {make in
-            make.leading.equalTo(scrollView.snp.leading).inset(30)
+            make.centerY.equalTo(horizontalRankStackView.snp.centerY)
+            make.leading.equalTo(horizontalRankStackView.snp.leading).offset(10)
+            make.height.equalTo(70)
+            make.width.equalTo(70)
+
         }
+        
+        firstVerticalStackView.addArrangedSubview(cryptoNameLabel)
+        firstVerticalStackView.addArrangedSubview(cryptoSymbolLabel)
+        
+        secondVerticalStackView.addArrangedSubview(rankImage)
+        secondVerticalStackView.addArrangedSubview(rankLabel)
+        
+        
+        horizontalRankStackView.addArrangedSubview(firstVerticalStackView)
+        horizontalRankStackView.addArrangedSubview(secondVerticalStackView)
+        
+        firstVerticalStackView.snp.makeConstraints { make in
+
+            make.leading.equalTo(cryptoImage.snp.trailing).offset(10)
+            make.centerY.equalTo(horizontalRankStackView.snp.centerY)
+
+        }
+        
+        rankImage.snp.makeConstraints { make in
+
+            make.width.equalTo(55)
+            make.height.equalTo(35)
+
+        }
+        
+        rankLabel.snp.makeConstraints { make in
+
+            make.centerX.equalTo(secondVerticalStackView.snp.centerX)
+
+        }
+        
+        horizontalRankStackView.isLayoutMarginsRelativeArrangement = true
+        horizontalRankStackView.layoutMargins = UIEdgeInsets(top: 15, left: 10, bottom: 15, right: 10)
+        
+        scrollStackViewContainer.addArrangedSubview(horizontalRankStackView)
+        scrollStackViewContainer.setCustomSpacing(25, after: horizontalRankStackView)
+        
+        
+        scrollStackViewContainer.addArrangedSubview(currentPriceLabel)
 
         scrollStackViewContainer.setCustomSpacing(5, after: currentPriceLabel)
 
+        horizontalUsdStackView.addArrangedSubview(usdLabel)
+        horizontalUsdStackView.addArrangedSubview(usdPriceLabel)
+        
+        horizontalEurStackView.addArrangedSubview(eurLabel)
+        horizontalEurStackView.addArrangedSubview(eurPriceLabel)
+        
+        horizontalTryStackView.addArrangedSubview(tryLabel)
+        horizontalTryStackView.addArrangedSubview(tryPriceLabel)
+        
+        verticalCurrentPriceStackView.addArrangedSubview(horizontalUsdStackView)
+        verticalCurrentPriceStackView.addArrangedSubview(horizontalEurStackView)
+        verticalCurrentPriceStackView.addArrangedSubview(horizontalTryStackView)
+        
         scrollStackViewContainer.addArrangedSubview(verticalCurrentPriceStackView)
+        
+        
         
         scrollStackViewContainer.addArrangedSubview(priceChangeLabel)
         
-        priceChangeLabel.snp.makeConstraints {make in
-            make.leading.equalTo(scrollView.snp.leading).inset(30)
-        }
-        
         scrollStackViewContainer.setCustomSpacing(5, after: priceChangeLabel)
         
+        horizontalUsdChangeStackView.addArrangedSubview(usdChangeLabel)
+        horizontalUsdChangeStackView.addArrangedSubview(usdPriceChangeLabel)
+        
+        horizontalEurChangeStackView.addArrangedSubview(eurChangeLabel)
+        horizontalEurChangeStackView.addArrangedSubview(eurPriceChangeLabel)
+        
+        horizontalTryChangeStackView.addArrangedSubview(tryChangeLabel)
+        horizontalTryChangeStackView.addArrangedSubview(tryPriceChangeLabel)
+        
+        verticalPriceChangeStackView.addArrangedSubview(horizontalUsdChangeStackView)
+        verticalPriceChangeStackView.addArrangedSubview(horizontalEurChangeStackView)
+        verticalPriceChangeStackView.addArrangedSubview(horizontalTryChangeStackView)
         
         scrollStackViewContainer.setCustomSpacing(20, after: verticalCurrentPriceStackView)
         scrollStackViewContainer.addArrangedSubview(verticalPriceChangeStackView)
         scrollStackViewContainer.setCustomSpacing(20, after: verticalPriceChangeStackView)
-
+        
         
         scrollStackViewContainer.addArrangedSubview(descriptionLabel)
-
-        descriptionLabel.snp.makeConstraints {make in
-            make.leading.equalTo(scrollView.snp.leading).inset(30)
-        }
         
         scrollStackViewContainer.setCustomSpacing(5, after: descriptionLabel)
+       
         
+        verticalDescriptionStackView.addArrangedSubview(detailDescriptionLabel)
+
         scrollStackViewContainer.addArrangedSubview(verticalDescriptionStackView)
-        //scrollStackViewContainer.setCustomSpacing(20, after: verticalDescriptionStackView)
+        scrollStackViewContainer.setCustomSpacing(20, after: verticalDescriptionStackView)
         
+        scrollStackViewContainer.isLayoutMarginsRelativeArrangement = true
+        scrollStackViewContainer.layoutMargins = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
+ 
     }
 }
