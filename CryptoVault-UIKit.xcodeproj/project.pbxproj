@@ -44,6 +44,7 @@
 		B0C9DB2C2A13FAFA00033ACD /* CryptoDB+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C9DB282A13FAFA00033ACD /* CryptoDB+CoreDataProperties.swift */; };
 		B0C9DB312A13FB8500033ACD /* NewsDB+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C9DB2F2A13FB8500033ACD /* NewsDB+CoreDataClass.swift */; };
 		B0C9DB322A13FB8500033ACD /* NewsDB+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C9DB302A13FB8500033ACD /* NewsDB+CoreDataProperties.swift */; };
+		B0C9DB342A1442F800033ACD /* CryptoCoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C9DB332A1442F800033ACD /* CryptoCoreDataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,6 +83,7 @@
 		B0C9DB282A13FAFA00033ACD /* CryptoDB+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CryptoDB+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		B0C9DB2F2A13FB8500033ACD /* NewsDB+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NewsDB+CoreDataClass.swift"; sourceTree = "<group>"; };
 		B0C9DB302A13FB8500033ACD /* NewsDB+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NewsDB+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		B0C9DB332A1442F800033ACD /* CryptoCoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoCoreDataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -392,6 +394,7 @@
 			children = (
 				B0C9DB272A13FAFA00033ACD /* CryptoDB+CoreDataClass.swift */,
 				B0C9DB282A13FAFA00033ACD /* CryptoDB+CoreDataProperties.swift */,
+				B0C9DB332A1442F800033ACD /* CryptoCoreDataManager.swift */,
 			);
 			path = Crypto;
 			sourceTree = "<group>";
@@ -506,6 +509,7 @@
 				B0095C3C2A11A95300C815A5 /* CryptoDetailModel.swift in Sources */,
 				B0095C2E2A1106D600C815A5 /* Constants.swift in Sources */,
 				B06FAE042A0837CC00AF25CE /* SplashViewModel.swift in Sources */,
+				B0C9DB342A1442F800033ACD /* CryptoCoreDataManager.swift in Sources */,
 				B06FAE222A0841FD00AF25CE /* FavoriteScreen.swift in Sources */,
 				B0095C1F2A10FEF400C815A5 /* HomeViewModel.swift in Sources */,
 				B0682CAF2A0EB20B00655BA4 /* UIHelper.swift in Sources */,

@@ -12,13 +12,16 @@ protocol CryptoDetailViewModelProtocol {
     func viewDidLoad(id: String)
     func fetchDetail(id: String)
     func checkFav() -> Bool
+    func addFavorite()
 }
 
 final class CryptoDetailViewModel {
 
     weak var view: CryptoDetailScreen?
     private var service = Service()
+    private var coreDataManager = CryptoCoreDataManager()
     var cryptoDetailList: [CryptoDetailModel] = []
+    var cryptoId : String?
     
     var usdPrice: Double = 0.0
     var usdPriceChange: Double = 0.0
@@ -32,8 +35,23 @@ final class CryptoDetailViewModel {
 }
 
 extension CryptoDetailViewModel: CryptoDetailViewModelProtocol {
+    
+    func addFavorite() {
+        if let cryptoId, !checkFav() {
+            coreDataManager.addCeyptoCurrency(id: cryptoId)
+        } else {
+            if let index = coreDataManager.getCryptoCurrencies()?.firstIndex(where: { $0.id == self.cryptoId }) {
+                coreDataManager.deleteCryptoCurrency(index: index)
+            }
+        }
+    }
+    
     func checkFav() -> Bool {
-        return false
+        if coreDataManager.getCryptoCurrencies()?.contains(where: {$0.id == self.cryptoId}) == true {
+            return true
+        }else{
+            return false
+        }
     }
     
 
@@ -83,7 +101,8 @@ extension CryptoDetailViewModel: CryptoDetailViewModelProtocol {
                             self.tryPriceChange = tryChange
                         }
                     }
-
+                    
+                    self.cryptoId = detail.id
                     self.view?.setLoading(isLoading: false)
                     self.view?.prepareFavButton()
                     self.view?.createComponents()

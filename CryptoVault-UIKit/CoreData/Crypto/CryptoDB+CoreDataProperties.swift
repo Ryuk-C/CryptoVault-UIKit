@@ -16,7 +16,7 @@ extension CryptoDB {
         return NSFetchRequest<CryptoDB>(entityName: "CryptoDB")
     }
 
-    @NSManaged public var id: Int16
+    @NSManaged public var id: String
 
 }
 

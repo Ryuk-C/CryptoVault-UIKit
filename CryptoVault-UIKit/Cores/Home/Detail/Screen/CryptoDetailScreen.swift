@@ -520,7 +520,7 @@ extension CryptoDetailScreen: CryptoDetailDelegate {
             sender.image = .init(systemName: "star.fill")
         }
 
-        //viewModel.addFavorite()
+        viewModel.addFavorite()
     }
 
     func createComponents() {
