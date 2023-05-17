@@ -13,6 +13,7 @@ protocol ServiceProtocol {
     func fetchCryptoMarketList(currency: Currencies, completion: @escaping (Result<CryptoMarketList?, AFError>) -> Void)
     func fetchCryptoDetail(id: String, completion: @escaping (Result<CryptoDetailModel?, AFError>) -> Void)
 
+    func fetchNewsList(language: Languages, completion: @escaping (Result<NewsModel?, AFError>) -> Void)
 }
 
 final class Service: ServiceProtocol {
@@ -44,8 +45,6 @@ final class Service: ServiceProtocol {
 
         let url = Constants.DETAILS_BASE_URL + id
         
-        print(url)
-
         NetworkManager.shared.sendRequest(type: CryptoDetailModel.self, url: url, method: .get, parameters: nil,
             completion: { response in
 
@@ -57,6 +56,29 @@ final class Service: ServiceProtocol {
                 }
 
             })
+    }
+    
+    func fetchNewsList(language: Languages, completion: @escaping (Result<NewsModel?, Alamofire.AFError>) -> Void) {
+        
+        let url = Constants.NEWS_BASE_URL
+        
+        let parameters: Parameters = [
+            "Apikey": Constants.NEWS_API_KEY,
+            "lang": language
+        ]
+        
+        NetworkManager.shared.sendRequest(type: NewsModel.self, url: url, method: .get, parameters: parameters,
+            completion: { response in
+
+                switch response {
+                case .success(let success):
+                    completion(.success(success))
+                case .failure(let failure):
+                    completion(.failure(failure))
+                }
+
+            })
+        
     }
 
 }

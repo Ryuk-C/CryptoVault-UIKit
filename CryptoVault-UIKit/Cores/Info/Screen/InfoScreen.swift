@@ -10,7 +10,6 @@ import UIKit
 
 protocol InfoScreenDelegate: AnyObject {
     func configureVC()
-    func setupScrollView()
 }
 
 final class InfoScreen: UIViewController {
@@ -82,7 +81,6 @@ final class InfoScreen: UIViewController {
         stackView.clipsToBounds = true
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
-
     }
 
     private let scrollView: UIScrollView = {
@@ -262,11 +260,15 @@ extension InfoScreen: InfoScreenDelegate {
         let deviceLabel = itemLabel
         deviceLabel.text = "Device"
         let deviceName = itemLabel
+        deviceName.textColor = .gray
+        deviceName.font = UIFont.systemFont(ofSize: 14, weight: UIFont.Weight.semibold)
         deviceName.text = UIDevice().name
 
         let versionLabel = itemLabel
         versionLabel.text = "Version"
         let versionName = itemLabel
+        versionName.textColor = .gray
+        versionName.font = UIFont.systemFont(ofSize: 14, weight: UIFont.Weight.semibold)
         versionName.text = Bundle.main.releaseVersionNumber
 
         let languageStackView = horizontalContactStackView

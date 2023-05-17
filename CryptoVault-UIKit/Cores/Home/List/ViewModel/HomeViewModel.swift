@@ -42,6 +42,7 @@ extension HomeViewModel: HomeViewModelProtocol {
                     self.view?.setLoading(isLoading: false)
                 }
             case .failure(_):
+                self.view?.setLoading(isLoading: false)
                 self.view?.dataError()
             }
 

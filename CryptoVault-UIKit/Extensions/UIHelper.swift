@@ -20,4 +20,17 @@ enum UIHelper {
 
         return layout
     }
+    
+    static func createNewsFlowLayout() -> UICollectionViewFlowLayout {
+
+        let layout = UICollectionViewFlowLayout()
+        let itemWidth = CGFloat.dWidth
+
+        layout.scrollDirection = .vertical
+        layout.itemSize = CGSize(width: itemWidth - 20, height: itemWidth * 0.15)
+
+        layout.minimumLineSpacing = 15
+
+        return layout
+    }
 }

@@ -7,24 +7,33 @@
 
 import UIKit
 
-class FavoriteScreen: UIViewController {
+protocol FavoriteScreenDelegate: AnyObject {
+    func configureVC()
+    
+}
 
+final class FavoriteScreen: UIViewController {
+
+    let viewModel = FavoriteViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        viewModel.view = self
+        viewModel.viewDidLoad()
+        
 
-        // Do any additional setup after loading the view.
     }
     
+}
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+extension FavoriteScreen: FavoriteScreenDelegate {
+    func configureVC() {
+        
+        title = "Favorites"
+        view.backgroundColor = UIColor(named: "BackgroundColor")
+        
     }
-    */
-
+    
+    
+    
 }

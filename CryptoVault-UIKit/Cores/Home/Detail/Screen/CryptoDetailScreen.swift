@@ -56,7 +56,7 @@ final class CryptoDetailScreen: UIViewController {
         stackView.axis = NSLayoutConstraint.Axis.vertical
         stackView.distribution = UIStackView.Distribution.equalSpacing
         stackView.alignment = UIStackView.Alignment.trailing
-        stackView.spacing = 2
+        stackView.spacing = 1
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
 
@@ -96,7 +96,7 @@ final class CryptoDetailScreen: UIViewController {
     private lazy var rankImage: UIImageView = {
 
         let imageView = UIImageView()
-        imageView.image = .init(systemName: "flag.2.crossed.fill")
+        imageView.image = .init(systemName: "crown.fill")
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.tintColor = .systemYellow
         return imageView
