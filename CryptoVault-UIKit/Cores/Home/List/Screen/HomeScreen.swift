@@ -51,6 +51,10 @@ final class HomeScreen: UIViewController {
         viewModel.viewDidLoad()
 
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = false
+    }
 
 }
 
@@ -173,7 +177,8 @@ extension HomeScreen: UICollectionViewDelegate, UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        viewModel.navigateToDetail(id: viewModel.cryptoList[indexPath.item].id,
+        viewModel.navigateToDetail(
+            id: viewModel.cryptoList[indexPath.item].id,
             pageTitle: viewModel.cryptoList[indexPath.item].name,
             price: String(viewModel.cryptoList[indexPath.item].currentPrice)
         )

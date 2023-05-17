@@ -472,6 +472,10 @@ final class CryptoDetailScreen: UIViewController {
         viewModel.view = self
         viewModel.viewDidLoad(id: id)
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = true
+    }
 
 }
 

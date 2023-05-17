@@ -14,6 +14,7 @@ protocol NewsScreenDelegate: AnyObject {
     func configureVC()
     func configureCollectionView()
     func reloadCollectionView()
+    func navigateToDetailScreen(id: String, url: String, source: String, newsTitle: String, urlToImage: String)
 }
 
 final class NewsScreen: UIViewController {
@@ -31,7 +32,7 @@ final class NewsScreen: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        
+        self.tabBarController?.tabBar.isHidden = false
     }
 
 }
@@ -101,6 +102,16 @@ extension NewsScreen: NewsScreenDelegate {
 
     }
     
+    func navigateToDetailScreen(id: String, url: String, source: String, newsTitle: String, urlToImage: String) {
+        
+        DispatchQueue.main.async {
+            self.navigationController?.pushViewController(
+                NewsDetailScreen(id: id, url: url, source: source, newsTitle: newsTitle, urlToImage: urlToImage), animated: true
+            )
+        }
+        
+    }
+    
 }
 
 extension NewsScreen: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -128,6 +139,16 @@ extension NewsScreen: UICollectionViewDelegate, UICollectionViewDataSource {
         cell.layer.masksToBounds = true
 
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        viewModel.navigateToDetailScreen(
+            id: viewModel.newsList[indexPath.item].id,
+            url: viewModel.newsList[indexPath.item].url,
+            source: viewModel.newsList[indexPath.item].source,
+            newsTitle: viewModel.newsList[indexPath.item].title,
+            urlToImage: viewModel.newsList[indexPath.item].imageurl)
     }
     
 }

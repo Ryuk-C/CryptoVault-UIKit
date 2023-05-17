@@ -11,6 +11,7 @@ protocol NewsViewModelProtocol {
     var view: NewsScreenDelegate? {get set}
     func viewDidLoad()
     func fetchNews()
+    func navigateToDetailScreen(id: String, url: String, source: String, newsTitle: String, urlToImage: String)
 }
 
 final class NewsViewModel {
@@ -45,6 +46,10 @@ extension NewsViewModel: NewsViewModelProtocol {
                 self.view?.dataError()
             }
         })
+    }
+    
+    func navigateToDetailScreen(id: String, url: String, source: String, newsTitle: String, urlToImage: String) {
+        view?.navigateToDetailScreen(id: id, url: url, source: source, newsTitle: newsTitle, urlToImage: urlToImage)
     }
     
 }
