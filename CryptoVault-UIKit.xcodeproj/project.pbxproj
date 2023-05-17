@@ -46,6 +46,10 @@
 		B07C4A832A155CB400E77699 /* NewsDetailScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07C4A822A155CB400E77699 /* NewsDetailScreen.swift */; };
 		B07C4A852A155CC400E77699 /* NewsDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07C4A842A155CC400E77699 /* NewsDetailViewModel.swift */; };
 		B07C4A872A15650200E77699 /* NewsCoreDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07C4A862A15650200E77699 /* NewsCoreDataModel.swift */; };
+		B07C4A892A156DCE00E77699 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07C4A882A156DCE00E77699 /* String+Ext.swift */; };
+		B07C4A8C2A1577C600E77699 /* SavedNewsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07C4A8B2A1577C600E77699 /* SavedNewsScreen.swift */; };
+		B07C4A8F2A1577EA00E77699 /* SavedCryptoScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07C4A8E2A1577EA00E77699 /* SavedCryptoScreen.swift */; };
+		B07C4A922A157C9900E77699 /* CustomSegmetedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07C4A912A157C9900E77699 /* CustomSegmetedControl.swift */; };
 		B0C9DB242A13FA2A00033ACD /* CryptoVaultDatabase.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B0C9DB222A13FA2A00033ACD /* CryptoVaultDatabase.xcdatamodeld */; };
 		B0C9DB2B2A13FAFA00033ACD /* CryptoDB+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C9DB272A13FAFA00033ACD /* CryptoDB+CoreDataClass.swift */; };
 		B0C9DB2C2A13FAFA00033ACD /* CryptoDB+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C9DB282A13FAFA00033ACD /* CryptoDB+CoreDataProperties.swift */; };
@@ -95,6 +99,10 @@
 		B07C4A822A155CB400E77699 /* NewsDetailScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDetailScreen.swift; sourceTree = "<group>"; };
 		B07C4A842A155CC400E77699 /* NewsDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDetailViewModel.swift; sourceTree = "<group>"; };
 		B07C4A862A15650200E77699 /* NewsCoreDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCoreDataModel.swift; sourceTree = "<group>"; };
+		B07C4A882A156DCE00E77699 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
+		B07C4A8B2A1577C600E77699 /* SavedNewsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedNewsScreen.swift; sourceTree = "<group>"; };
+		B07C4A8E2A1577EA00E77699 /* SavedCryptoScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedCryptoScreen.swift; sourceTree = "<group>"; };
+		B07C4A912A157C9900E77699 /* CustomSegmetedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegmetedControl.swift; sourceTree = "<group>"; };
 		B0C9DB232A13FA2A00033ACD /* CryptoVaultDatabase.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CryptoVaultDatabase.xcdatamodel; sourceTree = "<group>"; };
 		B0C9DB272A13FAFA00033ACD /* CryptoDB+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CryptoDB+CoreDataClass.swift"; sourceTree = "<group>"; };
 		B0C9DB282A13FAFA00033ACD /* CryptoDB+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CryptoDB+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -307,6 +315,8 @@
 				B0C9DB392A1466BF00033ACD /* DeviceModel+Ext.swift */,
 				B0C9DB3B2A14676400033ACD /* Bundle+Ext.swift */,
 				B07C4A792A15092F00E77699 /* DynamicUICollectionView+Ext.swift */,
+				B07C4A882A156DCE00E77699 /* String+Ext.swift */,
+				B07C4A912A157C9900E77699 /* CustomSegmetedControl.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -365,9 +375,9 @@
 		B06FAE1B2A0841A700AF25CE /* Favorite */ = {
 			isa = PBXGroup;
 			children = (
-				B07C4A722A14FDB000E77699 /* ViewModel */,
-				B07C4A712A14FDA800E77699 /* Screen */,
-				B06FAE212A0841FD00AF25CE /* FavoriteScreen.swift */,
+				B07C4A902A1577F300E77699 /* Container */,
+				B07C4A8D2A1577CE00E77699 /* SavedCrypto */,
+				B07C4A8A2A1577AB00E77699 /* SavedNews */,
 			);
 			path = Favorite;
 			sourceTree = "<group>";
@@ -400,6 +410,7 @@
 		B07C4A712A14FDA800E77699 /* Screen */ = {
 			isa = PBXGroup;
 			children = (
+				B06FAE212A0841FD00AF25CE /* FavoriteScreen.swift */,
 			);
 			path = Screen;
 			sourceTree = "<group>";
@@ -453,6 +464,31 @@
 				B07C4A842A155CC400E77699 /* NewsDetailViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		B07C4A8A2A1577AB00E77699 /* SavedNews */ = {
+			isa = PBXGroup;
+			children = (
+				B07C4A8B2A1577C600E77699 /* SavedNewsScreen.swift */,
+			);
+			path = SavedNews;
+			sourceTree = "<group>";
+		};
+		B07C4A8D2A1577CE00E77699 /* SavedCrypto */ = {
+			isa = PBXGroup;
+			children = (
+				B07C4A8E2A1577EA00E77699 /* SavedCryptoScreen.swift */,
+			);
+			path = SavedCrypto;
+			sourceTree = "<group>";
+		};
+		B07C4A902A1577F300E77699 /* Container */ = {
+			isa = PBXGroup;
+			children = (
+				B07C4A722A14FDB000E77699 /* ViewModel */,
+				B07C4A712A14FDA800E77699 /* Screen */,
+			);
+			path = Container;
 			sourceTree = "<group>";
 		};
 		B0C9DB202A13FA0600033ACD /* CoreData */ = {
@@ -576,15 +612,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B07C4A8C2A1577C600E77699 /* SavedNewsScreen.swift in Sources */,
 				B0095C2A2A1104AF00C815A5 /* Currencies.swift in Sources */,
 				B06FAE202A0841E700AF25CE /* NewsScreen.swift in Sources */,
 				B06FAE022A0837BF00AF25CE /* SplashScreen.swift in Sources */,
 				2BF5790D2A0697410073190A /* AppDelegate.swift in Sources */,
 				B0682CAD2A0EB1ED00655BA4 /* CGFloat+Ext.swift in Sources */,
+				B07C4A922A157C9900E77699 /* CustomSegmetedControl.swift in Sources */,
 				B0095C382A11476000C815A5 /* CryptoDetailScreen.swift in Sources */,
 				B0095C222A11037800C815A5 /* NetworkManager.swift in Sources */,
 				B06FAE242A08420C00AF25CE /* InfoScreen.swift in Sources */,
 				B07C4A6E2A14F98500E77699 /* NewsViewModel.swift in Sources */,
+				B07C4A8F2A1577EA00E77699 /* SavedCryptoScreen.swift in Sources */,
 				B0C9DB3A2A1466BF00033ACD /* DeviceModel+Ext.swift in Sources */,
 				B06FAE1E2A0841D300AF25CE /* HomeScreen.swift in Sources */,
 				B07C4A762A15015B00E77699 /* NewsModel.swift in Sources */,
@@ -612,6 +651,7 @@
 				B07C4A852A155CC400E77699 /* NewsDetailViewModel.swift in Sources */,
 				B0095C2E2A1106D600C815A5 /* Constants.swift in Sources */,
 				B06FAE042A0837CC00AF25CE /* SplashViewModel.swift in Sources */,
+				B07C4A892A156DCE00E77699 /* String+Ext.swift in Sources */,
 				B0C9DB342A1442F800033ACD /* CryptoCoreDataManager.swift in Sources */,
 				B06FAE222A0841FD00AF25CE /* FavoriteScreen.swift in Sources */,
 				B0C9DB3C2A14676400033ACD /* Bundle+Ext.swift in Sources */,

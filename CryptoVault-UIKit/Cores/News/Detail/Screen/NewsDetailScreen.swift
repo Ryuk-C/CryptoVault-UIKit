@@ -97,7 +97,8 @@ extension NewsDetailScreen: NewsDetailScreenDelegate {
     }
     
     func configureVC() {
-        title = source
+        
+        title = source?.firstUppercased
         view.backgroundColor = UIColor(named: "BackgroundColor")
         view.addSubview(webView)
         
@@ -117,8 +118,8 @@ extension NewsDetailScreen: NewsDetailScreenDelegate {
             
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
             make.leading.trailing.equalTo(view)
-            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
-            
+            make.bottom.equalTo(view.snp.bottom)
+        
         }
     }
 }

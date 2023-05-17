@@ -88,7 +88,7 @@ extension SplashScreen: SplashScreenDelegate {
 
             guard let items = tabBar.tabBar.items else { return }
 
-            let images = ["square.stack.3d.up.fill", "newspaper", "bookmark.fill", "info.circle.fill"]
+            let images = ["square.stack.3d.up.fill", "newspaper.fill", "bookmark.fill", "info.circle.fill"]
 
             for x in 0..<images.count {
                 items[x].image = UIImage(systemName: images[x])
