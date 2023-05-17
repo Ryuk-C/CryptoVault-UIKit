@@ -41,7 +41,7 @@ extension NewsViewModel: NewsViewModelProtocol {
                     self.view?.reloadCollectionView()
                     self.view?.setLoading(isLoading: false)
                 }
-            case .failure(let failure):
+            case .failure(_):
                 self.view?.setLoading(isLoading: false)
                 self.view?.dataError()
             }

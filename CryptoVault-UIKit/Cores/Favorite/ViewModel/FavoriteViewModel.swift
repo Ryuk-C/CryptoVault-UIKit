@@ -14,8 +14,6 @@ protocol FavoriteScreenProtocol {
 
 final class FavoriteViewModel {
     weak var view: FavoriteScreenDelegate?
-    
-    
 }
 
 extension FavoriteViewModel: FavoriteScreenProtocol {

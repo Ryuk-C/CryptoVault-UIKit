@@ -15,7 +15,6 @@ protocol SplashViewModelProtocol {
 
 final class SplashViewModel {
     weak var view: SplashScreenDelegate?
-
 }
 
 extension SplashViewModel: SplashViewModelProtocol {

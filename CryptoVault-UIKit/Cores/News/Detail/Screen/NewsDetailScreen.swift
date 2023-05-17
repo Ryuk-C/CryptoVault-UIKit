@@ -5,11 +5,15 @@
 //  Created by Cuma on 17/05/2023.
 //
 
+import SnapKit
 import UIKit
 import WebKit
 
 protocol NewsDetailScreenDelegate: AnyObject {
+    func setLoading(isLoading: Bool)
+    func dataError()
     func configureVC()
+    func prepareFavButton()
 }
 
 final class NewsDetailScreen: UIViewController {
@@ -27,6 +31,8 @@ final class NewsDetailScreen: UIViewController {
         webView.translatesAutoresizingMaskIntoConstraints = false
         return webView
     }()
+    
+    private lazy var activityIndicator = UIActivityIndicatorView()
     
     let viewModel: NewsDetailViewModel
     
@@ -51,7 +57,6 @@ final class NewsDetailScreen: UIViewController {
 
     }
     
-    
     override func viewWillAppear(_ animated: Bool) {
         self.tabBarController?.tabBar.isHidden = true
     }
@@ -60,13 +65,50 @@ final class NewsDetailScreen: UIViewController {
 
 extension NewsDetailScreen: NewsDetailScreenDelegate {
     
+    func setLoading(isLoading: Bool) {
+        if isLoading {
+            self.activityIndicator.startAnimating()
+        } else {
+            self.activityIndicator.stopAnimating()
+        }
+    }
+    
+    func dataError() {
+        self.errorMessage(title: "Error", message: "Oops! Something went wrong, Please try again.")
+    }
+    
+    func prepareFavButton() {
+        
+        let favButton = UIBarButtonItem(
+            image: self.viewModel.checkFav(id: id ?? "") ? .init(systemName: "star.fill") : .init(systemName: "star"),
+            style: .done, target: self, action: #selector(self.starButtonTapped))
+
+        self.navigationItem.rightBarButtonItem = favButton
+    }
+    
+    @objc private func starButtonTapped(_ sender: UIBarButtonItem) {
+        if sender.image == .init(systemName: "star.fill") {
+            sender.image = .init(systemName: "star")
+        } else {
+            sender.image = .init(systemName: "star.fill")
+        }
+
+        viewModel.addFavorite(id: id, url: url ?? "", source: source ?? "", newsTitle: newsTitle ?? "", imageUrl: urlToImage ?? "")
+    }
+    
     func configureVC() {
         title = source
         view.backgroundColor = UIColor(named: "BackgroundColor")
         view.addSubview(webView)
         
-        self.tabBarController?.tabBar.isHidden = true
+        view.addSubview(activityIndicator)
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
 
+        activityIndicator.snp.makeConstraints { make in
+            make.centerX.equalTo(view.snp.centerX)
+            make.centerY.equalTo(view.snp.centerY)
+        }
+        
         let newsURL = URL(string: url ?? "")
         let newsRequest = URLRequest(url: newsURL!)
         webView.load(newsRequest)
@@ -79,10 +121,6 @@ extension NewsDetailScreen: NewsDetailScreenDelegate {
             
         }
     }
-    
-    
-    
-    
 }
 
 extension NewsDetailScreen: WKUIDelegate {

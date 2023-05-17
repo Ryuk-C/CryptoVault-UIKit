@@ -45,6 +45,7 @@
 		B07C4A7D2A150F1200E77699 /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07C4A7C2A150F1200E77699 /* NewsCell.swift */; };
 		B07C4A832A155CB400E77699 /* NewsDetailScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07C4A822A155CB400E77699 /* NewsDetailScreen.swift */; };
 		B07C4A852A155CC400E77699 /* NewsDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07C4A842A155CC400E77699 /* NewsDetailViewModel.swift */; };
+		B07C4A872A15650200E77699 /* NewsCoreDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07C4A862A15650200E77699 /* NewsCoreDataModel.swift */; };
 		B0C9DB242A13FA2A00033ACD /* CryptoVaultDatabase.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B0C9DB222A13FA2A00033ACD /* CryptoVaultDatabase.xcdatamodeld */; };
 		B0C9DB2B2A13FAFA00033ACD /* CryptoDB+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C9DB272A13FAFA00033ACD /* CryptoDB+CoreDataClass.swift */; };
 		B0C9DB2C2A13FAFA00033ACD /* CryptoDB+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C9DB282A13FAFA00033ACD /* CryptoDB+CoreDataProperties.swift */; };
@@ -93,6 +94,7 @@
 		B07C4A7C2A150F1200E77699 /* NewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
 		B07C4A822A155CB400E77699 /* NewsDetailScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDetailScreen.swift; sourceTree = "<group>"; };
 		B07C4A842A155CC400E77699 /* NewsDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDetailViewModel.swift; sourceTree = "<group>"; };
+		B07C4A862A15650200E77699 /* NewsCoreDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCoreDataModel.swift; sourceTree = "<group>"; };
 		B0C9DB232A13FA2A00033ACD /* CryptoVaultDatabase.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CryptoVaultDatabase.xcdatamodel; sourceTree = "<group>"; };
 		B0C9DB272A13FAFA00033ACD /* CryptoDB+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CryptoDB+CoreDataClass.swift"; sourceTree = "<group>"; };
 		B0C9DB282A13FAFA00033ACD /* CryptoDB+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CryptoDB+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -476,6 +478,7 @@
 			children = (
 				B0C9DB2F2A13FB8500033ACD /* NewsDB+CoreDataClass.swift */,
 				B0C9DB302A13FB8500033ACD /* NewsDB+CoreDataProperties.swift */,
+				B07C4A862A15650200E77699 /* NewsCoreDataModel.swift */,
 			);
 			path = News;
 			sourceTree = "<group>";
@@ -596,6 +599,7 @@
 				B07C4A7A2A15092F00E77699 /* DynamicUICollectionView+Ext.swift in Sources */,
 				B07C4A832A155CB400E77699 /* NewsDetailScreen.swift in Sources */,
 				B0C9DB322A13FB8500033ACD /* NewsDB+CoreDataProperties.swift in Sources */,
+				B07C4A872A15650200E77699 /* NewsCoreDataModel.swift in Sources */,
 				B0095C3A2A11477200C815A5 /* CryptoDetailViewModel.swift in Sources */,
 				B0095C302A110A9200C815A5 /* CryptoCurrencyCell.swift in Sources */,
 				B0095C322A11439500C815A5 /* UIViewController+Ext.swift in Sources */,
