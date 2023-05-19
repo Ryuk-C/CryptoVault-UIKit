@@ -24,6 +24,7 @@
 		B0095C3C2A11A95300C815A5 /* CryptoDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0095C3B2A11A95300C815A5 /* CryptoDetailModel.swift */; };
 		B0559D262A16E4DC00783973 /* SavedCryptoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0559D252A16E4DC00783973 /* SavedCryptoViewModel.swift */; };
 		B0559D282A16E58B00783973 /* CustomCryptoMarketModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0559D272A16E58B00783973 /* CustomCryptoMarketModel.swift */; };
+		B0559D2B2A178DD500783973 /* anim_empty.json in Resources */ = {isa = PBXBuildFile; fileRef = B0559D2A2A178DD500783973 /* anim_empty.json */; };
 		B0682CA82A0EA87600655BA4 /* InfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0682CA72A0EA87600655BA4 /* InfoViewModel.swift */; };
 		B0682CAD2A0EB1ED00655BA4 /* CGFloat+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0682CAC2A0EB1ED00655BA4 /* CGFloat+Ext.swift */; };
 		B0682CAF2A0EB20B00655BA4 /* UIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0682CAE2A0EB20B00655BA4 /* UIHelper.swift */; };
@@ -83,6 +84,7 @@
 		B0095C3B2A11A95300C815A5 /* CryptoDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoDetailModel.swift; sourceTree = "<group>"; };
 		B0559D252A16E4DC00783973 /* SavedCryptoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedCryptoViewModel.swift; sourceTree = "<group>"; };
 		B0559D272A16E58B00783973 /* CustomCryptoMarketModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCryptoMarketModel.swift; sourceTree = "<group>"; };
+		B0559D2A2A178DD500783973 /* anim_empty.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = anim_empty.json; path = "../../../../../Downloads/CryptoVault-SwiftUI/CryptoVault/Lotties/anim_empty.json"; sourceTree = "<group>"; };
 		B0682CA72A0EA87600655BA4 /* InfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewModel.swift; sourceTree = "<group>"; };
 		B0682CAC2A0EB1ED00655BA4 /* CGFloat+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Ext.swift"; sourceTree = "<group>"; };
 		B0682CAE2A0EB20B00655BA4 /* UIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHelper.swift; sourceTree = "<group>"; };
@@ -216,6 +218,7 @@
 		B0095C282A11048E00C815A5 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				B0559D292A178D5300783973 /* Lotties */,
 				B0095C292A1104AF00C815A5 /* Currencies.swift */,
 				B0095C2D2A1106D600C815A5 /* Constants.swift */,
 				B07C4A772A1501DA00E77699 /* Languages.swift */,
@@ -271,6 +274,14 @@
 				B0559D252A16E4DC00783973 /* SavedCryptoViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		B0559D292A178D5300783973 /* Lotties */ = {
+			isa = PBXGroup;
+			children = (
+				B0559D2A2A178DD500783973 /* anim_empty.json */,
+			);
+			path = Lotties;
 			sourceTree = "<group>";
 		};
 		B0682CA52A0EA85800655BA4 /* Screen */ = {
@@ -561,6 +572,7 @@
 				2BF579052A0697410073190A /* Sources */,
 				2BF579062A0697410073190A /* Frameworks */,
 				2BF579072A0697410073190A /* Resources */,
+				B0559D2C2A17954600783973 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -623,11 +635,32 @@
 			files = (
 				2BF579192A0697430073190A /* LaunchScreen.storyboard in Resources */,
 				B06FAE152A083EF600AF25CE /* Library3amsoft.otf in Resources */,
+				B0559D2B2A178DD500783973 /* anim_empty.json in Resources */,
 				2BF579162A0697430073190A /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		B0559D2C2A17954600783973 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2BF579052A0697410073190A /* Sources */ = {

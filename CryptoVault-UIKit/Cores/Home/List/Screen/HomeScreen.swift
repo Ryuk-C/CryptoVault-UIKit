@@ -51,7 +51,7 @@ final class HomeScreen: UIViewController {
         viewModel.viewDidLoad()
 
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         self.tabBarController?.tabBar.isHidden = false
     }

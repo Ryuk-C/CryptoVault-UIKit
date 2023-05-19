@@ -81,7 +81,7 @@ final class InfoScreen: UIViewController {
         stackView.clipsToBounds = true
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
-        
+
     }
 
     private let scrollView: UIScrollView = {

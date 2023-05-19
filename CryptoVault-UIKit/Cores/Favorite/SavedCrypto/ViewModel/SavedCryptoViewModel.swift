@@ -32,23 +32,31 @@ extension SavedCryptoViewModel: SavedCryptoViewModelProtocol {
         fetchSavedCryptoList()
         view?.configureCollectionView()
     }
-
     
     func fetchSavedCryptoList() {
         
         self.savedCryptoList = coreDataManager.getCryptoCurrencies() ?? []
         
-        var idList = ""
+        switch savedCryptoList.count > 0 {
+            
+        case true:
+            
+            view?.setEmptyOrNot(isEmpty: false)
+            var idList = ""
 
-        for i in savedCryptoList {
+            for i in savedCryptoList {
+                
+                idList.append("\(i.id+",")")
+                
+            }
+                    
+            fetchCryptoList(ids: idList)
             
-            idList.append("\(i.id+",")")
-            
+        case false:
+            cryptoList = []
+            view?.setEmptyOrNot(isEmpty: true)
         }
         
-        print(idList)
-        
-        fetchCryptoList(ids: idList)
     }
     
     

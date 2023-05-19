@@ -5,10 +5,12 @@
 //  Created by Cuma on 17/05/2023.
 //
 
+import Lottie
 import UIKit
 
 protocol SavedCryptoScreenDelegate: AnyObject {
     func setLoading(isLoading: Bool)
+    func setEmptyOrNot(isEmpty: Bool)
     func dataError()
     func configureVC()
     func configureCollectionView()
@@ -17,7 +19,30 @@ protocol SavedCryptoScreenDelegate: AnyObject {
 }
 
 final class SavedCryptoScreen: UIViewController {
-
+    
+    private var animationView: LottieAnimationView = {
+        var lottie = LottieAnimationView()
+        lottie = .init(name: "anim_empty")
+        lottie.contentMode = .scaleAspectFit
+        lottie.loopMode = .loop
+        lottie.animationSpeed = 0.75
+        lottie.translatesAutoresizingMaskIntoConstraints = false
+        lottie.play()
+        return lottie
+    }()
+    
+    private lazy var emptyListLabel: UILabel = {
+        let label = UILabel()
+        label.text = "There isn't any currency in your favorite list."
+        label.font = UIFont.systemFont(ofSize: 18, weight: UIFont.Weight.semibold)
+        label.textColor = .black.withAlphaComponent(0.8)
+        label.textAlignment = .center
+        label.numberOfLines = 0
+        label.lineBreakMode = .byWordWrapping
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
     private var collectionView: UICollectionView!
     private lazy var activityIndicator = UIActivityIndicatorView()
 
@@ -36,6 +61,33 @@ final class SavedCryptoScreen: UIViewController {
 }
 
 extension SavedCryptoScreen: SavedCryptoScreenDelegate {
+    func setEmptyOrNot(isEmpty: Bool) {
+        
+        if isEmpty {
+            
+            view.addSubview(animationView)
+            view.addSubview(emptyListLabel)
+            
+            animationView.snp.makeConstraints { make in
+                make.top.equalTo(view.snp.top)
+                make.leading.equalTo(view.snp.leading).offset(10)
+                make.trailing.equalTo(view.snp.trailing).inset(10)
+                make.height.equalTo(UIScreen.main.bounds.height * 0.6)
+            }
+            
+            emptyListLabel.snp.makeConstraints { make in
+                
+                make.top.equalTo(animationView.snp.bottom).inset(100)
+                make.leading.equalTo(view.snp.leading).offset(10)
+                make.trailing.equalTo(view.snp.trailing).inset(10)
+                make.bottom.equalTo(view.snp.bottom)
+                
+            }
+            
+        }
+        
+    }
+    
 
     func configureVC() {
 

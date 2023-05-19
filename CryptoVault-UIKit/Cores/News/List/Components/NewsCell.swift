@@ -30,19 +30,19 @@ final class NewsCell: UICollectionViewCell {
     }()
 
     private lazy var titleLabel: UILabel = {
-        let lab = UILabel()
-        lab.textColor = .black
-        lab.numberOfLines = 0
-        lab.lineBreakMode = .byWordWrapping
-        lab.translatesAutoresizingMaskIntoConstraints = false
-        lab.font = UIFont.systemFont(ofSize: 15, weight: UIFont.Weight.bold)
-        lab.setContentHuggingPriority(.defaultHigh, for: .vertical)
-        return lab
+        let label = UILabel()
+        label.textColor = .black
+        label.numberOfLines = 0
+        label.lineBreakMode = .byWordWrapping
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont.systemFont(ofSize: 15, weight: UIFont.Weight.bold)
+        label.setContentHuggingPriority(.defaultHigh, for: .vertical)
+        return label
 
     }()
 
     private lazy var categoriesLabel: UILabel = {
-        
+
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 13, weight: UIFont.Weight.semibold)
         label.textColor = .black.withAlphaComponent(0.8)
@@ -51,7 +51,7 @@ final class NewsCell: UICollectionViewCell {
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
-        
+
     }()
 
     override init(frame: CGRect) {

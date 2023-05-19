@@ -8,7 +8,7 @@
 import Foundation
 
 protocol NewsDetailViewModelProtocol {
-    var view: NewsDetailScreenDelegate? {get set}
+    var view: NewsDetailScreenDelegate? { get set }
     func viewDidLoad()
     func checkFav(id: String) -> Bool
     func addFavorite(id: String?, url: String, source: String, newsTitle: String, imageUrl: String)
@@ -20,22 +20,22 @@ final class NewsDetailViewModel {
 }
 
 extension NewsDetailViewModel: NewsDetailViewModelProtocol {
-    
+
     func viewDidLoad() {
         view?.configureVC()
         view?.prepareFavButton()
     }
-    
+
     func checkFav(id: String) -> Bool {
-        if coreDataManager.getNews()?.contains(where: {$0.id == id}) == true {
+        if coreDataManager.getNews()?.contains(where: { $0.id == id }) == true {
             return true
-        }else{
+        } else {
             return false
         }
     }
-    
+
     func addFavorite(id: String?, url: String, source: String, newsTitle: String, imageUrl: String) {
-        
+
         if let id, !checkFav(id: id) {
             coreDataManager.addNews(id: id, url: url, source: source, newsTitle: newsTitle, imageUrl: imageUrl)
         } else {
@@ -43,10 +43,10 @@ extension NewsDetailViewModel: NewsDetailViewModelProtocol {
                 coreDataManager.deleteCryptoCurrency(index: index)
             }
         }
-        
+
     }
-    
-    
-    
-    
+
+
+
+
 }

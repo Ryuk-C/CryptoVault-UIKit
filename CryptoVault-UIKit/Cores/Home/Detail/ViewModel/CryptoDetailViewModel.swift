@@ -107,8 +107,7 @@ extension CryptoDetailViewModel: CryptoDetailViewModelProtocol {
                     self.view?.prepareFavButton()
                     self.view?.createComponents()
                 }
-            case .failure(let failure):
-                print(failure)
+            case .failure(_):
                 self.view?.dataError()
             }
 
