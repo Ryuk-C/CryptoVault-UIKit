@@ -32,6 +32,10 @@ final class FavoriteScreen: UIViewController {
 
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = false
+    }
+    
 }
 
 extension FavoriteScreen: FavoriteScreenDelegate {

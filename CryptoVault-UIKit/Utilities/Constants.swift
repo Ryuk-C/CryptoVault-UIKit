@@ -12,6 +12,8 @@ class Constants {
     static let BASE_URL: String = "https://api.coingecko.com/api/v3/coins/markets"
 
     static let DETAILS_BASE_URL: String = "https://api.coingecko.com/api/v3/coins/"
+    
+    static let CUSTOM_MARKET_BASE_URL: String = "https://api.coingecko.com/api/v3/coins/markets"
 
     static let NEWS_BASE_URL: String = "https://min-api.cryptocompare.com/data/v2/news/"
     
