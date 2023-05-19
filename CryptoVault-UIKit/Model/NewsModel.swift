@@ -57,5 +57,3 @@ struct SourceInfo: Codable {
 // MARK: - RateLimit
 struct RateLimit: Codable {
 }
-
-//typealias NewsList = [NewsModel]

@@ -38,7 +38,6 @@ final class NewsCell: UICollectionViewCell {
         label.font = UIFont.systemFont(ofSize: 15, weight: UIFont.Weight.bold)
         label.setContentHuggingPriority(.defaultHigh, for: .vertical)
         return label
-
     }()
 
     private lazy var categoriesLabel: UILabel = {
@@ -51,7 +50,6 @@ final class NewsCell: UICollectionViewCell {
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
-
     }()
 
     override init(frame: CGRect) {
@@ -81,7 +79,6 @@ final class NewsCell: UICollectionViewCell {
             make.top.equalTo(contentView.snp.top)
             make.height.equalTo(125)
             make.width.equalTo(contentView.snp.width)
-
         }
 
         sourceLabel.snp.makeConstraints { make in
@@ -89,7 +86,6 @@ final class NewsCell: UICollectionViewCell {
             make.top.equalTo(newsImageView.snp.bottom).offset(10)
             make.leading.equalTo(contentView.snp.leading).offset(5)
             make.trailing.equalTo(contentView.snp.trailing).inset(5)
-
         }
 
         titleLabel.snp.makeConstraints { make in
@@ -98,7 +94,6 @@ final class NewsCell: UICollectionViewCell {
             make.leading.equalTo(contentView.snp.leading).offset(5)
             make.width.equalTo(CGFloat.dWidth / 2 - 30)
             make.trailing.equalTo(contentView.snp.trailing).inset(5)
-
         }
 
         categoriesLabel.snp.makeConstraints { make in
@@ -107,19 +102,15 @@ final class NewsCell: UICollectionViewCell {
             make.width.equalTo(contentView.snp.width)
             make.bottom.equalTo(contentView.snp.bottom).inset(5)
             make.leading.equalTo(contentView.snp.leading).offset(5)
-
         }
-
-
     }
 
     func design(source: String, imageUrl: String, title: String, date: String) {
 
         let url = URL(string: imageUrl)
         newsImageView.kf.setImage(with: url)
-        sourceLabel.text = source
+        sourceLabel.text = source.firstUppercased
         titleLabel.text = title
         categoriesLabel.text = date
-
     }
 }

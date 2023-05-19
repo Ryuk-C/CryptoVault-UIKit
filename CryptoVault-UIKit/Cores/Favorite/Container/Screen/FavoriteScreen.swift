@@ -9,7 +9,6 @@ import UIKit
 
 protocol FavoriteScreenDelegate: AnyObject {
     func configureVC()
-
 }
 
 final class FavoriteScreen: UIViewController {
@@ -22,20 +21,18 @@ final class FavoriteScreen: UIViewController {
     var newsCreated = false
     
     private let buttonTitles: [String] = ["Crypto", "News"]
-    private lazy var segmentedControl: CustomSegmetedControl = CustomSegmetedControl(buttonTitles: buttonTitles)
+    private lazy var segmentedControl = CustomSegmetedControl(buttonTitles: buttonTitles)
 
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.view = self
         viewModel.viewDidLoad()
-
-
     }
 
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         self.tabBarController?.tabBar.isHidden = false
     }
-    
 }
 
 extension FavoriteScreen: FavoriteScreenDelegate {
@@ -52,30 +49,25 @@ extension FavoriteScreen: FavoriteScreenDelegate {
         segmentedControl.snp.makeConstraints { make in
             
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
-                .offset(10)
+                .offset(5)
             make.leading.equalTo(view.snp.leading)
             make.trailing.equalTo(view.snp.trailing)
-            
         }
 
         addChild(cryptoScreen)
         cryptoScreen.view.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(cryptoScreen.view)
         
-        cryptoScreen.view.snp.makeConstraints{ make in
+        cryptoScreen.view.snp.makeConstraints { make in
             
             make.top.equalTo(segmentedControl.snp.bottom)
             make.leading.equalTo(view.snp.leading)
             make.trailing.equalTo(view.snp.trailing)
             make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
-            
         }
         
         cryptoScreen.didMove(toParent: self)
-        
     }
-
-
 }
 
 extension FavoriteScreen: CustomSegmetedControlDelegate {
@@ -88,8 +80,7 @@ extension FavoriteScreen: CustomSegmetedControlDelegate {
         if buttonTitlesIndex == 0 {
             
             cryptoScreen.view.isHidden = false
-            
-        }else{
+        } else {
             
             if newsCreated == false {
                                 
@@ -97,13 +88,12 @@ extension FavoriteScreen: CustomSegmetedControlDelegate {
                 newsScreen.view.translatesAutoresizingMaskIntoConstraints = false
                 view.addSubview(newsScreen.view)
                 
-                newsScreen.view.snp.makeConstraints{ make in
+                newsScreen.view.snp.makeConstraints { make in
                     
                     make.top.equalTo(segmentedControl.snp.bottom)
                     make.leading.equalTo(view.snp.leading)
                     make.trailing.equalTo(view.snp.trailing)
                     make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
-                    
                 }
                 
                 newsScreen.didMove(toParent: self)
@@ -113,7 +103,5 @@ extension FavoriteScreen: CustomSegmetedControlDelegate {
             
             newsScreen.view.isHidden = false
         }
-        
-        
     }
 }

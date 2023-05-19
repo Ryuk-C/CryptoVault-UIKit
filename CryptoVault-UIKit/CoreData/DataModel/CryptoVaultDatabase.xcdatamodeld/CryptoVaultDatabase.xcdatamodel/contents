@@ -4,7 +4,7 @@
         <attribute name="id" optional="YES" attributeType="String"/>
     </entity>
     <entity name="NewsDB" representedClassName="NewsDB" syncable="YES">
-        <attribute name="date" optional="YES" attributeType="String"/>
+        <attribute name="category" optional="YES" attributeType="String"/>
         <attribute name="id" optional="YES" attributeType="String"/>
         <attribute name="imageUrl" optional="YES" attributeType="String"/>
         <attribute name="newsUrl" optional="YES" attributeType="String"/>

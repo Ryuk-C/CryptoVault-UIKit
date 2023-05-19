@@ -6,9 +6,8 @@
 //
 //
 
-import Foundation
 import CoreData
-
+import Foundation
 
 extension CryptoDB {
 
@@ -17,9 +16,7 @@ extension CryptoDB {
     }
 
     @NSManaged public var id: String
-
 }
 
-extension CryptoDB : Identifiable {
-
+extension CryptoDB: Identifiable {
 }

@@ -19,7 +19,6 @@ final class HomeViewModel {
     weak var view: HomeScreenDelegate?
     private var service = Service()
     var cryptoList: [CryptoMarketListElement] = []
-
 }
 
 extension HomeViewModel: HomeViewModelProtocol {
@@ -41,11 +40,11 @@ extension HomeViewModel: HomeViewModelProtocol {
                     self.view?.reloadCollectionView()
                     self.view?.setLoading(isLoading: false)
                 }
+                
             case .failure(_):
                 self.view?.setLoading(isLoading: false)
                 self.view?.dataError()
             }
-
         })
     }
 
@@ -55,12 +54,10 @@ extension HomeViewModel: HomeViewModelProtocol {
             let searchData = self.cryptoList.filter { $0.name.lowercased().contains(text.lowercased()) }
             self.cryptoList = searchData
             self.view?.reloadCollectionView()
-
         } else {
 
             fetchCryptoList()
         }
-
     }
 
     func navigateToDetail(id: String, pageTitle: String, price: String) {

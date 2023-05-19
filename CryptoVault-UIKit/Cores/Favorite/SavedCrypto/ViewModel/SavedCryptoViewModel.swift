@@ -22,7 +22,6 @@ final class SavedCryptoViewModel {
     let coreDataManager = CryptoCoreDataManager()
     var cryptoList: [CustomCryptoMarketModelElement] = []
     var savedCryptoList: [CryptoDB] = []
-    
 }
 
 extension SavedCryptoViewModel: SavedCryptoViewModelProtocol {
@@ -35,30 +34,28 @@ extension SavedCryptoViewModel: SavedCryptoViewModelProtocol {
     
     func fetchSavedCryptoList() {
         
-        self.savedCryptoList = coreDataManager.getCryptoCurrencies() ?? []
+        savedCryptoList = coreDataManager.getCryptoCurrencies() ?? []
         
-        switch savedCryptoList.count > 0 {
+        switch savedCryptoList.isEmpty {
             
         case true:
             
+            cryptoList = []
+            view?.setEmptyOrNot(isEmpty: true)
+            
+        case false:
+
             view?.setEmptyOrNot(isEmpty: false)
             var idList = ""
 
             for i in savedCryptoList {
                 
-                idList.append("\(i.id+",")")
-                
+                idList.append("\(i.id + ",")")
             }
                     
             fetchCryptoList(ids: idList)
-            
-        case false:
-            cryptoList = []
-            view?.setEmptyOrNot(isEmpty: true)
         }
-        
     }
-    
     
     func fetchCryptoList(ids: String) {
         view?.setLoading(isLoading: true)
@@ -72,7 +69,8 @@ extension SavedCryptoViewModel: SavedCryptoViewModelProtocol {
                     self.view?.reloadCollectionView()
                     self.view?.setLoading(isLoading: false)
                 }
-            case .failure(let failure):
+                
+            case .failure(let error):
                 self.view?.setLoading(isLoading: false)
                 self.view?.dataError()
             }
@@ -83,5 +81,4 @@ extension SavedCryptoViewModel: SavedCryptoViewModelProtocol {
     func navigateToDetail(id: String, pageTitle: String, price: String) {
         view?.navigateToDetailScreen(id: id, pageTitle: pageTitle, price: price)
     }
-
 }

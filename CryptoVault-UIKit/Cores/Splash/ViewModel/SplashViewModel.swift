@@ -26,7 +26,5 @@ extension SplashViewModel: SplashViewModelProtocol {
     func navigateToHomeScreen() {
 
         view?.navigateToHome()
-
     }
-
 }

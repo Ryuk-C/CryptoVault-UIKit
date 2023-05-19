@@ -23,7 +23,6 @@ final class InfoScreen: UIViewController {
         label.textAlignment = .left
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
-
     }
 
     private var itemLabel: UILabel {
@@ -34,7 +33,6 @@ final class InfoScreen: UIViewController {
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
-
     }
 
     private var separator: UIView {
@@ -44,7 +42,6 @@ final class InfoScreen: UIViewController {
         separator.translatesAutoresizingMaskIntoConstraints = false
         separator.heightAnchor.constraint(equalToConstant: 0.7).isActive = true
         return separator
-
     }
 
     private var nextButton: UIButton {
@@ -67,7 +64,6 @@ final class InfoScreen: UIViewController {
         stackView.isLayoutMarginsRelativeArrangement = true
         stackView.layoutMargins = UIEdgeInsets(top: 10, left: 15, bottom: 10, right: 15)
         return stackView
-
     }
 
     private var horizontalContactStackView: UIStackView {
@@ -81,7 +77,6 @@ final class InfoScreen: UIViewController {
         stackView.clipsToBounds = true
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
-
     }
 
     private let scrollView: UIScrollView = {
@@ -105,9 +100,7 @@ final class InfoScreen: UIViewController {
         super.viewDidLoad()
         viewModel.view = self
         viewModel.viewDidLoad()
-
     }
-
 }
 
 extension InfoScreen: InfoScreenDelegate {
@@ -132,7 +125,6 @@ extension InfoScreen: InfoScreenDelegate {
             make.bottom.equalTo(view.layoutMarginsGuide.snp.bottom)
             make.leading.equalTo(view.snp.leading)
             make.trailing.equalTo(view.snp.trailing)
-
         }
 
         scrollStackViewContainer.snp.makeConstraints { make in
@@ -142,22 +134,18 @@ extension InfoScreen: InfoScreenDelegate {
             make.leading.equalTo(scrollView.snp.leading)
             make.trailing.equalTo(scrollView.snp.trailing)
             make.width.equalTo(scrollView.snp.width)
-
         }
 
         configureContainerView()
-
     }
 
     private func configureContainerView() {
 
         let contactLabel = titleLabel
         contactLabel.text = "Contact"
-
         scrollStackViewContainer.addArrangedSubview(contactLabel)
         scrollStackViewContainer.isLayoutMarginsRelativeArrangement = true
         scrollStackViewContainer.layoutMargins = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
-
         scrollStackViewContainer.setCustomSpacing(5, after: contactLabel)
 
         let githubLabel = itemLabel
@@ -217,7 +205,6 @@ extension InfoScreen: InfoScreenDelegate {
         scrollStackViewContainer.setCustomSpacing(30, after: contactContainer)
         scrollStackViewContainer.setCustomSpacing(5, after: privacyLabel)
 
-
         let privacyAgreLabel = itemLabel
         privacyAgreLabel.text = "Privacy Agreement"
         let privacyAgre = nextButton
@@ -247,11 +234,17 @@ extension InfoScreen: InfoScreenDelegate {
 
         scrollStackViewContainer.addArrangedSubview(privacyContainer)
 
+        scrollStackViewContainer.setCustomSpacing(30, after: privacyContainer)
+
+        createSystemLabel()
+    }
+    
+    private func createSystemLabel() {
+        
         let systemLabel = titleLabel
         systemLabel.text = "System"
 
         scrollStackViewContainer.addArrangedSubview(systemLabel)
-        scrollStackViewContainer.setCustomSpacing(30, after: privacyContainer)
         scrollStackViewContainer.setCustomSpacing(5, after: systemLabel)
 
         let LanguageLabel = itemLabel
@@ -284,7 +277,6 @@ extension InfoScreen: InfoScreenDelegate {
         versionStackView.addArrangedSubview(versionLabel)
         versionStackView.addArrangedSubview(versionName)
 
-
         let systemContainer = verticalContactStackView
 
         let fourthSeparator = separator
@@ -302,21 +294,21 @@ extension InfoScreen: InfoScreenDelegate {
         scrollStackViewContainer.addArrangedSubview(systemContainer)
     }
 
-    func openGitHub() {
+    private func openGitHub() {
 
         let safariViewController = SFSafariViewController(url: URL(string: "https://www.github.com/Ryuk-C")!)
         present(safariViewController, animated: true)
-
     }
 
-    func openLinkedIn() {
+    private func openLinkedIn() {
 
-        let safariViewController = SFSafariViewController(url: URL(string: "https://www.linkedin.com/in/cumahaznedar/")!)
-        present(safariViewController, animated: true)
-
+        let safariViewController = SFSafariViewController(
+            url: URL(string: "https://www.linkedin.com/in/cumahaznedar/")!)
+            present(safariViewController,
+            animated: true)
     }
 
-    func openMailApp(toEmail: String, subject: String, body: String) {
+    private func openMailApp(toEmail: String, subject: String, body: String) {
         guard
             let subject = subject.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed),
             let body = body.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
@@ -330,5 +322,4 @@ extension InfoScreen: InfoScreenDelegate {
 
         UIApplication.shared.open(url)
     }
-
 }

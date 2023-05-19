@@ -20,6 +20,4 @@ extension InfoViewModel: InfoViewModelProtocol {
     func viewDidLoad() {
         view?.configureVC()
     }
-    
-    
 }

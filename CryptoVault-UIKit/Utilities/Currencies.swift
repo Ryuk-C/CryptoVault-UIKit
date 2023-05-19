@@ -12,5 +12,4 @@ enum Currencies: String {
     case USD = "usd"
     case EUR = "eur"
     case TRY = "try"
-    
 }

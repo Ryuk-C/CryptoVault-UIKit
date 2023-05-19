@@ -50,14 +50,13 @@ final class SavedCryptoScreen: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
 
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         viewModel.view = self
         viewModel.viewDidLoad()
     }
-
 }
 
 extension SavedCryptoScreen: SavedCryptoScreenDelegate {
@@ -72,7 +71,8 @@ extension SavedCryptoScreen: SavedCryptoScreenDelegate {
                 make.top.equalTo(view.snp.top)
                 make.leading.equalTo(view.snp.leading).offset(10)
                 make.trailing.equalTo(view.snp.trailing).inset(10)
-                make.height.equalTo(UIScreen.main.bounds.height * 0.6)
+                make.bottom.equalTo(view.snp.bottom)
+
             }
             
             emptyListLabel.snp.makeConstraints { make in
@@ -81,14 +81,10 @@ extension SavedCryptoScreen: SavedCryptoScreenDelegate {
                 make.leading.equalTo(view.snp.leading).offset(10)
                 make.trailing.equalTo(view.snp.trailing).inset(10)
                 make.bottom.equalTo(view.snp.bottom)
-                
             }
-            
         }
-        
     }
     
-
     func configureVC() {
 
         view.backgroundColor = UIColor(named: "BackgroundColor")
@@ -105,9 +101,7 @@ extension SavedCryptoScreen: SavedCryptoScreenDelegate {
 
             make.centerX.equalTo(view.snp.centerX)
             make.centerY.equalTo(view.snp.centerY)
-
         }
-
     }
 
     func setLoading(isLoading: Bool) {
@@ -137,9 +131,7 @@ extension SavedCryptoScreen: SavedCryptoScreenDelegate {
             make.leading.equalTo(view.snp.leading)
             make.trailing.equalTo(view.snp.trailing)
             make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
-
         }
-
     }
 
     func reloadCollectionView() {
@@ -157,17 +149,12 @@ extension SavedCryptoScreen: SavedCryptoScreenDelegate {
 
 extension SavedCryptoScreen: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-
-        print("xxx")
-        print(viewModel.cryptoList.count)
-        print("xxx")
         return viewModel.cryptoList.count
-
     }
 
-
-
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView,
+                        cellForItemAt indexPath: IndexPath
+    ) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(
             withReuseIdentifier: CryptoCurrencyCell.reuseID, for: indexPath) as! CryptoCurrencyCell
 

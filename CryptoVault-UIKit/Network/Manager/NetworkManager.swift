@@ -13,7 +13,8 @@ class NetworkManager {
 
 extension NetworkManager {
 
-    func sendRequest<T: Codable>(type: T.Type,
+    func sendRequest<T: Codable>(
+        type: T.Type,
         url: String,
         method: HTTPMethod,
         parameters: Parameters? = nil,

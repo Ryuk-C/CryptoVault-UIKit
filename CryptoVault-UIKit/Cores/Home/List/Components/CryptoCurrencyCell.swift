@@ -29,7 +29,6 @@ final class CryptoCurrencyCell: UICollectionViewCell {
         stackView.spacing = 2.0
         stackView.alignment = UIStackView.Alignment.leading
         return stackView
-
     }()
 
     private lazy var cryptoNameLabel: UILabel = {
@@ -57,7 +56,6 @@ final class CryptoCurrencyCell: UICollectionViewCell {
         stackView.spacing = 2.0
         stackView.alignment = UIStackView.Alignment.trailing
         return stackView
-
     }()
 
     private lazy var cryptoPriceLabel: UILabel = {
@@ -67,7 +65,6 @@ final class CryptoCurrencyCell: UICollectionViewCell {
         label.textColor = .black
         label.textAlignment = .center
         return label
-
     }()
 
     private lazy var cryptoPriceChangesLabel: UILabel = {
@@ -76,7 +73,6 @@ final class CryptoCurrencyCell: UICollectionViewCell {
         label.font = UIFont.systemFont(ofSize: 13, weight: UIFont.Weight.semibold)
         label.textAlignment = .center
         return label
-
     }()
 
     override init(frame: CGRect) {
@@ -119,7 +115,6 @@ final class CryptoCurrencyCell: UICollectionViewCell {
             make.centerY.equalTo(contentView.snp.centerY)
             make.height.equalTo(40)
             make.width.equalTo(40)
-
         }
 
         firstStackView.addArrangedSubview(cryptoNameLabel)
@@ -137,7 +132,6 @@ final class CryptoCurrencyCell: UICollectionViewCell {
             make.trailing.equalTo(contentView.snp.trailing).inset(10)
             make.centerY.equalTo(contentView.snp.centerY)
         }
-
     }
 
     func design(imageUrl: String, name: String, symbol: String, price: String, changes: String) {
@@ -152,11 +146,9 @@ final class CryptoCurrencyCell: UICollectionViewCell {
         if changes.first == "-" {
 
             cryptoPriceChangesLabel.textColor = .red
-
         } else {
 
             cryptoPriceChangesLabel.textColor = .green
-
         }
     }
 }

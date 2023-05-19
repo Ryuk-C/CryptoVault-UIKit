@@ -11,7 +11,10 @@ protocol NewsDetailViewModelProtocol {
     var view: NewsDetailScreenDelegate? { get set }
     func viewDidLoad()
     func checkFav(id: String) -> Bool
-    func addFavorite(id: String?, url: String, source: String, newsTitle: String, imageUrl: String)
+    func addFavorite(
+        id: String?, url: String, source: String,
+        newsTitle: String, imageUrl: String, category: String
+    )
 }
 
 final class NewsDetailViewModel {
@@ -34,19 +37,14 @@ extension NewsDetailViewModel: NewsDetailViewModelProtocol {
         }
     }
 
-    func addFavorite(id: String?, url: String, source: String, newsTitle: String, imageUrl: String) {
+    func addFavorite(id: String?, url: String, source: String, newsTitle: String, imageUrl: String, category: String) {
 
         if let id, !checkFav(id: id) {
-            coreDataManager.addNews(id: id, url: url, source: source, newsTitle: newsTitle, imageUrl: imageUrl)
+            coreDataManager.addNews(id: id, url: url, source: source, newsTitle: newsTitle, imageUrl: imageUrl, category: category)
         } else {
             if let index = coreDataManager.getNews()?.firstIndex(where: { $0.id == id }) {
                 coreDataManager.deleteCryptoCurrency(index: index)
             }
         }
-
     }
-
-
-
-
 }

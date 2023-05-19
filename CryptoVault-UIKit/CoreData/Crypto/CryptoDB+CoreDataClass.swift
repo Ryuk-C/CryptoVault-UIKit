@@ -6,10 +6,9 @@
 //
 //
 
-import Foundation
 import CoreData
+import Foundation
 
 @objc(CryptoDB)
 public class CryptoDB: NSManagedObject {
-
 }

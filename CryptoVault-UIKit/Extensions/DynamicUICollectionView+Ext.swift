@@ -7,9 +7,10 @@
 
 import UIKit
 
-
 protocol DynamicCollectionViewDelegate: AnyObject {
-  func collectionView(_ collectionView: UICollectionView, heightForPhotoAtIndexPath indexPath: IndexPath , cellWidth : CGFloat ) -> CGFloat
+  func collectionView(_ collectionView: UICollectionView,
+                      heightForPhotoAtIndexPath indexPath: IndexPath,
+                      cellWidth: CGFloat) -> CGFloat
 }
 
 class DynamicCollectionViewLayout: UICollectionViewLayout {
@@ -32,7 +33,7 @@ class DynamicCollectionViewLayout: UICollectionViewLayout {
   }
   
   override func prepare() {
-    guard cache.isEmpty == true,let collectionView = collectionView else {
+    guard cache.isEmpty == true, let collectionView = collectionView else {
         return
     }
     let columnWidth = contentWidth / CGFloat(numberOfColumns)
@@ -46,18 +47,17 @@ class DynamicCollectionViewLayout: UICollectionViewLayout {
     for item in 0..<collectionView.numberOfItems(inSection: 0) {
       let indexPath = IndexPath(item: item, section: 0)
       let photoHeight = delegate?.collectionView( collectionView,
-        heightForPhotoAtIndexPath: indexPath , cellWidth: columnWidth) ?? 180
+        heightForPhotoAtIndexPath: indexPath, cellWidth: columnWidth) ?? 180
       let height = cellPadding * 2 + photoHeight
-      let frame = CGRect(x: xOffset[column],y: yOffset[column],width: columnWidth,height: height)
+      let frame = CGRect(x: xOffset[column], y: yOffset[column], width: columnWidth, height: height)
       let insetFrame = frame.insetBy(dx: cellPadding, dy: cellPadding)
 
       let attributes = UICollectionViewLayoutAttributes(forCellWith: indexPath)
       attributes.frame = insetFrame
       cache.append(attributes)
       contentHeight = max(contentHeight, frame.maxY)
-      yOffset[column] = yOffset[column] + height
+      yOffset[column] = (yOffset[column] + height)
       column = column < (numberOfColumns - 1) ? (column + 1) : 0
-        
     }
   }
   
@@ -76,5 +76,4 @@ class DynamicCollectionViewLayout: UICollectionViewLayout {
   override func layoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
     return cache[indexPath.item]
   }
-
 }

@@ -6,9 +6,8 @@
 //
 //
 
-import Foundation
 import CoreData
-
+import Foundation
 
 extension NewsDB {
 
@@ -20,11 +19,9 @@ extension NewsDB {
     @NSManaged public var newsUrl: String?
     @NSManaged public var imageUrl: String?
     @NSManaged public var source: String?
-    @NSManaged public var date: String?
+    @NSManaged public var category: String?
     @NSManaged public var title: String?
-
 }
 
-extension NewsDB : Identifiable {
-
+extension NewsDB: Identifiable {
 }

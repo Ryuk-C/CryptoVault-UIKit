@@ -23,6 +23,7 @@ final class NewsDetailScreen: UIViewController {
     var source: String?
     var newsTitle: String?
     var urlToImage: String?
+    var newsCategory: String?
 
     private lazy var webView: WKWebView = {
         let webConfiguration = WKWebViewConfiguration()
@@ -36,13 +37,18 @@ final class NewsDetailScreen: UIViewController {
 
     let viewModel: NewsDetailViewModel
 
-    init(id: String? = nil, url: String? = nil, source: String? = nil, newsTitle: String? = nil, urlToImage: String? = nil, viewModel: NewsDetailViewModel = NewsDetailViewModel()) {
+    init(id: String? = nil, url: String? = nil, source: String? = nil,
+         newsTitle: String? = nil, urlToImage: String? = nil,
+         viewModel: NewsDetailViewModel = NewsDetailViewModel(),
+         newsCategory: String? = nil
+    ) {
         self.id = id
         self.url = url
         self.source = source
         self.newsTitle = newsTitle
         self.urlToImage = urlToImage
         self.viewModel = viewModel
+        self.newsCategory = newsCategory
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -54,13 +60,12 @@ final class NewsDetailScreen: UIViewController {
         super.viewDidLoad()
         viewModel.view = self
         viewModel.viewDidLoad()
-
     }
 
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         self.tabBarController?.tabBar.isHidden = true
     }
-
 }
 
 extension NewsDetailScreen: NewsDetailScreenDelegate {
@@ -93,7 +98,11 @@ extension NewsDetailScreen: NewsDetailScreenDelegate {
             sender.image = .init(systemName: "star.fill")
         }
 
-        viewModel.addFavorite(id: id, url: url ?? "", source: source ?? "", newsTitle: newsTitle ?? "", imageUrl: urlToImage ?? "")
+        viewModel.addFavorite(
+            id: id, url: url ?? "", source: source ?? "",
+            newsTitle: newsTitle ?? "", imageUrl: urlToImage ?? "",
+            category: newsCategory ?? ""
+        )
     }
 
     func configureVC() {
@@ -119,12 +128,9 @@ extension NewsDetailScreen: NewsDetailScreenDelegate {
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
             make.leading.trailing.equalTo(view)
             make.bottom.equalTo(view.snp.bottom)
-
         }
     }
 }
 
 extension NewsDetailScreen: WKUIDelegate {
-
-
 }

@@ -36,10 +36,10 @@ opt_in_rules:
 - strict_fileprivate
 - switch_case_on_newline
 - toggle_bool
+- unused_import
 - unneeded_parentheses_in_closure_argument
 - unowned_variable_capture
 - untyped_error_in_catch
-- unused_import
 - vertical_whitespace_between_cases
 - vertical_whitespace_closing_braces
 - yoda_condition

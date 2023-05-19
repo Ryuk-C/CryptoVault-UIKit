@@ -20,7 +20,4 @@ extension FavoriteViewModel: FavoriteScreenProtocol {
     func viewDidLoad() {
         view?.configureVC()
     }
-    
-    
-    
 }

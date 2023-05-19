@@ -40,15 +40,15 @@ final class SplashScreen: UIViewController {
         viewModel.view = self
         viewModel.viewDidLoad()
         viewModel.navigateToHomeScreen()
-
     }
-
 }
 
 extension SplashScreen: SplashScreenDelegate {
 
     func configureVC() {
+        
         view.backgroundColor = .white
+ 
         view.addSubview(bitcoinImage)
         view.addSubview(developerName)
 
@@ -84,7 +84,10 @@ extension SplashScreen: SplashScreenDelegate {
             favoritesViewController.title = "Favorite"
             infoViewController.title = "Info"
 
-            tabBar.setViewControllers([homeViewController, newsViewController, favoritesViewController, infoViewController], animated: false)
+            tabBar.setViewControllers(
+                [homeViewController, newsViewController, favoritesViewController, infoViewController],
+                animated: false
+            )
 
             guard let items = tabBar.tabBar.items else { return }
 
@@ -97,7 +100,6 @@ extension SplashScreen: SplashScreenDelegate {
             tabBar.modalPresentationStyle = .fullScreen
 
             self.present(tabBar, animated: true)
-
         }
     }
 }

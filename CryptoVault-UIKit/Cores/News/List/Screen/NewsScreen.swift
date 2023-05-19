@@ -14,7 +14,7 @@ protocol NewsScreenDelegate: AnyObject {
     func configureVC()
     func configureCollectionView()
     func reloadCollectionView()
-    func navigateToDetailScreen(id: String, url: String, source: String, newsTitle: String, urlToImage: String)
+    func navigateToDetailScreen(id: String, url: String, source: String, newsTitle: String, urlToImage: String, category: String)
 }
 
 final class NewsScreen: UIViewController {
@@ -28,13 +28,12 @@ final class NewsScreen: UIViewController {
         super.viewDidLoad()
         viewModel.view = self
         viewModel.viewDidLoad()
-
     }
 
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         self.tabBarController?.tabBar.isHidden = false
     }
-
 }
 
 extension NewsScreen: NewsScreenDelegate {
@@ -59,9 +58,7 @@ extension NewsScreen: NewsScreenDelegate {
 
             make.centerX.equalTo(view.snp.centerX)
             make.centerY.equalTo(view.snp.centerY)
-
         }
-
     }
 
     func setLoading(isLoading: Bool) {
@@ -74,7 +71,7 @@ extension NewsScreen: NewsScreenDelegate {
 
     func dataError() {
 
-        self.errorMessage(title: "Error", message: "Crypto currencies could not loaded! Please try again.")
+        self.errorMessage(title: "Error", message: "News could not loaded! Please try again.")
     }
 
     func configureCollectionView() {
@@ -92,26 +89,24 @@ extension NewsScreen: NewsScreenDelegate {
             make.leading.equalTo(view.snp.leading)
             make.trailing.equalTo(view.snp.trailing)
             make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
-
         }
     }
 
     func reloadCollectionView() {
 
         collectionView.reloadOnMainThread()
-
     }
 
-    func navigateToDetailScreen(id: String, url: String, source: String, newsTitle: String, urlToImage: String) {
+    func navigateToDetailScreen(id: String, url: String, source: String, newsTitle: String, urlToImage: String, category: String) {
 
         DispatchQueue.main.async {
             self.navigationController?.pushViewController(
-                NewsDetailScreen(id: id, url: url, source: source, newsTitle: newsTitle, urlToImage: urlToImage), animated: true
+                NewsDetailScreen(
+                id: id, url: url, source: source, newsTitle: newsTitle, urlToImage: urlToImage, newsCategory: category),
+                animated: true
             )
         }
-
     }
-
 }
 
 extension NewsScreen: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -120,8 +115,10 @@ extension NewsScreen: UICollectionViewDelegate, UICollectionViewDataSource {
         return viewModel.newsList.count
     }
 
-
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        cellForItemAt indexPath: IndexPath
+    ) -> UICollectionViewCell {
 
         let cell = collectionView.dequeueReusableCell(
             withReuseIdentifier: NewsCell.reuseID, for: indexPath) as! NewsCell
@@ -130,7 +127,8 @@ extension NewsScreen: UICollectionViewDelegate, UICollectionViewDataSource {
             source: viewModel.newsList[indexPath.row].source,
             imageUrl: viewModel.newsList[indexPath.row].imageurl,
             title: viewModel.newsList[indexPath.row].title,
-            date: viewModel.newsList[indexPath.row].categories)
+            date: viewModel.newsList[indexPath.row].categories
+        )
 
         cell.backgroundColor = .white
         cell.layer.borderColor = UIColor.gray.withAlphaComponent(0.4).cgColor
@@ -148,32 +146,42 @@ extension NewsScreen: UICollectionViewDelegate, UICollectionViewDataSource {
             url: viewModel.newsList[indexPath.item].url,
             source: viewModel.newsList[indexPath.item].source,
             newsTitle: viewModel.newsList[indexPath.item].title,
-            urlToImage: viewModel.newsList[indexPath.item].imageurl)
+            urlToImage: viewModel.newsList[indexPath.item].imageurl,
+            category: viewModel.newsList[indexPath.item].categories
+        )
     }
-
 }
 
 extension NewsScreen: DynamicCollectionViewDelegate {
 
-    func collectionView(_ collectionView: UICollectionView, heightForPhotoAtIndexPath indexPath: IndexPath, cellWidth: CGFloat) -> CGFloat {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        heightForPhotoAtIndexPath indexPath: IndexPath,
+        cellWidth: CGFloat
+    ) -> CGFloat {
 
         let imageHeight = CGFloat(125)
-        let sourceLabelHeight = sourceRequiredHeight(text: viewModel.newsList[indexPath.row].source, cellWidth: (cellWidth - 10))
+        let sourceLabelHeight = sourceRequiredHeight(
+            text: viewModel.newsList[indexPath.row].source, cellWidth: (cellWidth - 10)
+        )
 
-        let titleLableHeight = requiredHeight(text: viewModel.newsList[indexPath.row].title, cellWidth: (cellWidth - 10))
+        let titleLableHeight = requiredHeight(
+            text: viewModel.newsList[indexPath.row].title, cellWidth: (cellWidth - 10)
+        )
 
-        let categoryLableHeight = sourceRequiredHeight(text: viewModel.newsList[indexPath.row].categories, cellWidth: (cellWidth - 10))
+        let categoryLableHeight = sourceRequiredHeight(
+            text: viewModel.newsList[indexPath.row].categories, cellWidth: (cellWidth - 10)
+        )
 
         let spacing = CGFloat(35)
 
         return (imageHeight + sourceLabelHeight + titleLableHeight + categoryLableHeight + spacing)
-
     }
 
     func sourceRequiredHeight(text: String, cellWidth: CGFloat) -> CGFloat {
 
         let font = UIFont.systemFont(ofSize: 14, weight: UIFont.Weight.semibold)
-        let label: UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: CGFloat.dWidth / 2 - 30, height: .greatestFiniteMagnitude))
+        let label = UILabel(frame: CGRect(x: 0, y: 0, width: CGFloat.dWidth / 2 - 30, height: .greatestFiniteMagnitude))
         label.numberOfLines = 0
         label.textAlignment = .justified
         label.lineBreakMode = .byWordWrapping
@@ -181,13 +189,12 @@ extension NewsScreen: DynamicCollectionViewDelegate {
         label.text = text
         label.sizeToFit()
         return label.frame.height
-
     }
 
     func requiredHeight(text: String, cellWidth: CGFloat) -> CGFloat {
 
         let font = UIFont.systemFont(ofSize: 15, weight: UIFont.Weight.bold)
-        let label: UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: CGFloat.dWidth / 2 - 30, height: .greatestFiniteMagnitude))
+        let label = UILabel(frame: CGRect(x: 0, y: 0, width: CGFloat.dWidth / 2 - 30, height: .greatestFiniteMagnitude))
         label.numberOfLines = 0
         label.textAlignment = .justified
         label.lineBreakMode = .byWordWrapping
@@ -195,13 +202,12 @@ extension NewsScreen: DynamicCollectionViewDelegate {
         label.text = text
         label.sizeToFit()
         return label.frame.height
-
     }
 
     func calcSourceLabelHeight(text: String, cellWidth: CGFloat) -> CGFloat {
 
         let font = UIFont.systemFont(ofSize: 15, weight: UIFont.Weight.bold)
-        let label: UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: CGFloat.dWidth / 2 - 30, height: .greatestFiniteMagnitude))
+        let label = UILabel(frame: CGRect(x: 0, y: 0, width: CGFloat.dWidth / 2 - 30, height: .greatestFiniteMagnitude))
         label.numberOfLines = 0
         label.textAlignment = .justified
         label.lineBreakMode = .byWordWrapping
@@ -209,7 +215,5 @@ extension NewsScreen: DynamicCollectionViewDelegate {
         label.text = text
         label.sizeToFit()
         return label.frame.height
-
     }
-
 }

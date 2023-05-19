@@ -35,7 +35,6 @@ final class CryptoDetailScreen: UIViewController {
         stackView.layer.cornerRadius = 15
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
-
     }()
 
     private lazy var firstVerticalStackView: UIStackView = {
@@ -47,7 +46,6 @@ final class CryptoDetailScreen: UIViewController {
         stackView.spacing = 2
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
-
     }()
 
     private lazy var secondVerticalStackView: UIStackView = {
@@ -59,7 +57,6 @@ final class CryptoDetailScreen: UIViewController {
         stackView.spacing = 1
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
-
     }()
 
     private lazy var cryptoImage: UIImageView = {
@@ -68,7 +65,6 @@ final class CryptoDetailScreen: UIViewController {
         imageView.clipsToBounds = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
-
     }()
 
     private lazy var cryptoNameLabel: UILabel = {
@@ -79,7 +75,6 @@ final class CryptoDetailScreen: UIViewController {
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
-
     }()
 
     private lazy var cryptoSymbolLabel: UILabel = {
@@ -90,7 +85,6 @@ final class CryptoDetailScreen: UIViewController {
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
-
     }()
 
     private lazy var rankImage: UIImageView = {
@@ -100,7 +94,6 @@ final class CryptoDetailScreen: UIViewController {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.tintColor = .systemYellow
         return imageView
-
     }()
 
     private lazy var rankLabel: UILabel = {
@@ -111,10 +104,7 @@ final class CryptoDetailScreen: UIViewController {
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
-
     }()
-
-
 
     private lazy var currentPriceLabel: UILabel = {
 
@@ -125,7 +115,6 @@ final class CryptoDetailScreen: UIViewController {
         label.textAlignment = .left
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
-
     }()
 
     private lazy var verticalCurrentPriceStackView: UIStackView = {
@@ -140,7 +129,6 @@ final class CryptoDetailScreen: UIViewController {
         stackView.isLayoutMarginsRelativeArrangement = true
         stackView.layoutMargins = UIEdgeInsets(top: 10, left: 15, bottom: 10, right: 15)
         return stackView
-
     }()
 
     private lazy var horizontalUsdStackView: UIStackView = {
@@ -154,7 +142,6 @@ final class CryptoDetailScreen: UIViewController {
         stackView.clipsToBounds = true
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
-
     }()
 
     private lazy var usdLabel: UILabel = {
@@ -166,7 +153,6 @@ final class CryptoDetailScreen: UIViewController {
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
-
     }()
 
     private lazy var usdPriceLabel: UILabel = {
@@ -177,10 +163,7 @@ final class CryptoDetailScreen: UIViewController {
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
-
     }()
-
-
 
     private lazy var horizontalEurStackView: UIStackView = {
 
@@ -193,7 +176,6 @@ final class CryptoDetailScreen: UIViewController {
         stackView.clipsToBounds = true
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
-
     }()
 
     private lazy var eurLabel: UILabel = {
@@ -205,7 +187,6 @@ final class CryptoDetailScreen: UIViewController {
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
-
     }()
 
     private lazy var eurPriceLabel: UILabel = {
@@ -216,10 +197,7 @@ final class CryptoDetailScreen: UIViewController {
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
-
     }()
-
-
 
     private lazy var horizontalTryStackView: UIStackView = {
 
@@ -232,7 +210,6 @@ final class CryptoDetailScreen: UIViewController {
         stackView.clipsToBounds = true
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
-
     }()
 
     private lazy var tryLabel: UILabel = {
@@ -244,7 +221,6 @@ final class CryptoDetailScreen: UIViewController {
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
-
     }()
 
     private lazy var tryPriceLabel: UILabel = {
@@ -255,10 +231,7 @@ final class CryptoDetailScreen: UIViewController {
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
-
     }()
-
-
 
     private lazy var priceChangeLabel: UILabel = {
 
@@ -269,7 +242,6 @@ final class CryptoDetailScreen: UIViewController {
         label.textAlignment = .left
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
-
     }()
 
     private lazy var verticalPriceChangeStackView: UIStackView = {
@@ -284,7 +256,6 @@ final class CryptoDetailScreen: UIViewController {
         stackView.isLayoutMarginsRelativeArrangement = true
         stackView.layoutMargins = UIEdgeInsets(top: 10, left: 15, bottom: 10, right: 15)
         return stackView
-
     }()
 
     private lazy var horizontalUsdChangeStackView: UIStackView = {
@@ -298,7 +269,6 @@ final class CryptoDetailScreen: UIViewController {
         stackView.clipsToBounds = true
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
-
     }()
 
     private lazy var usdChangeLabel: UILabel = {
@@ -310,7 +280,6 @@ final class CryptoDetailScreen: UIViewController {
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
-
     }()
 
     private lazy var usdPriceChangeLabel: UILabel = {
@@ -321,10 +290,7 @@ final class CryptoDetailScreen: UIViewController {
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
-
     }()
-
-
 
     private lazy var horizontalEurChangeStackView: UIStackView = {
 
@@ -337,7 +303,6 @@ final class CryptoDetailScreen: UIViewController {
         stackView.clipsToBounds = true
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
-
     }()
 
     private lazy var eurChangeLabel: UILabel = {
@@ -349,7 +314,6 @@ final class CryptoDetailScreen: UIViewController {
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
-
     }()
 
     private lazy var eurPriceChangeLabel: UILabel = {
@@ -360,9 +324,7 @@ final class CryptoDetailScreen: UIViewController {
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
-
     }()
-
 
     private lazy var horizontalTryChangeStackView: UIStackView = {
 
@@ -375,7 +337,6 @@ final class CryptoDetailScreen: UIViewController {
         stackView.clipsToBounds = true
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
-
     }()
 
     private lazy var tryChangeLabel: UILabel = {
@@ -387,7 +348,6 @@ final class CryptoDetailScreen: UIViewController {
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
-
     }()
 
     private lazy var tryPriceChangeLabel: UILabel = {
@@ -398,10 +358,7 @@ final class CryptoDetailScreen: UIViewController {
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
-
     }()
-
-
 
     private lazy var descriptionLabel: UILabel = {
 
@@ -412,7 +369,6 @@ final class CryptoDetailScreen: UIViewController {
         label.textAlignment = .left
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
-
     }()
 
     private lazy var verticalDescriptionStackView: UIStackView = {
@@ -427,7 +383,6 @@ final class CryptoDetailScreen: UIViewController {
         stackView.isLayoutMarginsRelativeArrangement = true
         stackView.layoutMargins = UIEdgeInsets(top: 10, left: 15, bottom: 10, right: 15)
         return stackView
-
     }()
 
     private lazy var detailDescriptionLabel: UILabel = {
@@ -474,9 +429,9 @@ final class CryptoDetailScreen: UIViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         self.tabBarController?.tabBar.isHidden = true
     }
-
 }
 
 extension CryptoDetailScreen: CryptoDetailDelegate {
@@ -493,7 +448,6 @@ extension CryptoDetailScreen: CryptoDetailDelegate {
             make.centerX.equalTo(view.snp.centerX)
             make.centerY.equalTo(view.snp.centerY)
         }
-
     }
 
     func setLoading(isLoading: Bool) {
@@ -540,7 +494,6 @@ extension CryptoDetailScreen: CryptoDetailDelegate {
             }
 
             detailDescriptionLabel.text = index.description?.en
-
         }
 
         cryptoImage.kf.setImage(with: URL(string: imageUrl))
@@ -548,7 +501,6 @@ extension CryptoDetailScreen: CryptoDetailDelegate {
         usdPriceLabel.text = String(format: "%.2f", viewModel.usdPrice) + "$"
         eurPriceLabel.text = String(format: "%.2f", viewModel.eurPrice) + "€"
         tryPriceLabel.text = String(format: "%.2f", viewModel.tryPrice) + "₺"
-
 
         usdPriceChangeLabel.text = String(format: "%.2f", viewModel.usdPriceChange) + "%"
 
@@ -589,7 +541,6 @@ extension CryptoDetailScreen: CryptoDetailDelegate {
             make.bottom.equalTo(view.layoutMarginsGuide.snp.bottom)
             make.leading.equalTo(view.snp.leading)
             make.trailing.equalTo(view.snp.trailing)
-
         }
 
         scrollStackViewContainer.snp.makeConstraints { make in
@@ -599,14 +550,12 @@ extension CryptoDetailScreen: CryptoDetailDelegate {
             make.leading.equalTo(scrollView.snp.leading)
             make.trailing.equalTo(scrollView.snp.trailing)
             make.width.equalTo(scrollView.snp.width)
-
         }
 
         configureContainerView()
-
     }
 
-    func configureContainerView() {
+    private func configureContainerView() {
 
         horizontalRankStackView.addArrangedSubview(cryptoImage)
 
@@ -616,7 +565,6 @@ extension CryptoDetailScreen: CryptoDetailDelegate {
             make.leading.equalTo(horizontalRankStackView.snp.leading).offset(10)
             make.height.equalTo(70)
             make.width.equalTo(70)
-
         }
 
         firstVerticalStackView.addArrangedSubview(cryptoNameLabel)
@@ -625,7 +573,6 @@ extension CryptoDetailScreen: CryptoDetailDelegate {
         secondVerticalStackView.addArrangedSubview(rankImage)
         secondVerticalStackView.addArrangedSubview(rankLabel)
 
-
         horizontalRankStackView.addArrangedSubview(firstVerticalStackView)
         horizontalRankStackView.addArrangedSubview(secondVerticalStackView)
 
@@ -633,20 +580,17 @@ extension CryptoDetailScreen: CryptoDetailDelegate {
 
             make.leading.equalTo(cryptoImage.snp.trailing).offset(10)
             make.centerY.equalTo(horizontalRankStackView.snp.centerY)
-
         }
 
         rankImage.snp.makeConstraints { make in
 
             make.width.equalTo(55)
             make.height.equalTo(35)
-
         }
 
         rankLabel.snp.makeConstraints { make in
 
             make.centerX.equalTo(secondVerticalStackView.snp.centerX)
-
         }
 
         horizontalRankStackView.isLayoutMarginsRelativeArrangement = true
@@ -655,9 +599,7 @@ extension CryptoDetailScreen: CryptoDetailDelegate {
         scrollStackViewContainer.addArrangedSubview(horizontalRankStackView)
         scrollStackViewContainer.setCustomSpacing(25, after: horizontalRankStackView)
 
-
         scrollStackViewContainer.addArrangedSubview(currentPriceLabel)
-
         scrollStackViewContainer.setCustomSpacing(5, after: currentPriceLabel)
 
         horizontalUsdStackView.addArrangedSubview(usdLabel)
@@ -674,8 +616,6 @@ extension CryptoDetailScreen: CryptoDetailDelegate {
         verticalCurrentPriceStackView.addArrangedSubview(horizontalTryStackView)
 
         scrollStackViewContainer.addArrangedSubview(verticalCurrentPriceStackView)
-
-
 
         scrollStackViewContainer.addArrangedSubview(priceChangeLabel)
 
@@ -698,11 +638,9 @@ extension CryptoDetailScreen: CryptoDetailDelegate {
         scrollStackViewContainer.addArrangedSubview(verticalPriceChangeStackView)
         scrollStackViewContainer.setCustomSpacing(20, after: verticalPriceChangeStackView)
 
-
         scrollStackViewContainer.addArrangedSubview(descriptionLabel)
 
         scrollStackViewContainer.setCustomSpacing(5, after: descriptionLabel)
-
 
         verticalDescriptionStackView.addArrangedSubview(detailDescriptionLabel)
 
@@ -711,6 +649,5 @@ extension CryptoDetailScreen: CryptoDetailDelegate {
 
         scrollStackViewContainer.isLayoutMarginsRelativeArrangement = true
         scrollStackViewContainer.layoutMargins = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
-
     }
 }

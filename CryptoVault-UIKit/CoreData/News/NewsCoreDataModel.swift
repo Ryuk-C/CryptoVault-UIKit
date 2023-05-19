@@ -33,13 +33,17 @@ final class NewsCoreDataManager {
         return try? self.context.fetch(NewsDB.fetchRequest())
     }
 
-    func addNews(id: String, url: String, source: String, newsTitle: String, imageUrl: String) {
+    func addNews(
+        id: String, url: String, source: String,
+        newsTitle: String, imageUrl: String, category: String
+    ) {
         let news = NewsDB(context: context)
         news.id = id
         news.newsUrl = url
         news.source = source
         news.title = newsTitle
         news.imageUrl = imageUrl
+        news.category = category
         save()
     }
 
@@ -50,4 +54,3 @@ final class NewsCoreDataManager {
         }
     }
 }
-

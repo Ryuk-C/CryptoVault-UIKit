@@ -54,9 +54,10 @@ struct MarketData: Codable {
     let priceChange24H, priceChangePercentage24H, priceChangePercentage7D, priceChangePercentage14D: Double?
     let priceChangePercentage30D, priceChangePercentage60D, priceChangePercentage200D, priceChangePercentage1Y: Double?
     let marketCapChangePercentage24H: Double?
-    let priceChange24HInCurrency, priceChangePercentage1HInCurrency, priceChangePercentage24HInCurrency, priceChangePercentage7DInCurrency: [String: Double]?
-    let priceChangePercentage14DInCurrency, priceChangePercentage30DInCurrency, priceChangePercentage60DInCurrency, priceChangePercentage200DInCurrency: [String: Double]?
-    let priceChangePercentage1YInCurrency, marketCapChange24HInCurrency, marketCapChangePercentage24HInCurrency: [String: Double]?
+    let priceChange24HInCurrency, priceChangePercentage1HInCurrency: [String: Double]?
+    let priceChangePercentage24HInCurrency, priceChangePercentage7DInCurrency: [String: Double]?
+    let priceChangePercentage60DInCurrency, priceChangePercentage200DInCurrency: [String: Double]?
+    let marketCapChange24HInCurrency, marketCapChangePercentage24HInCurrency: [String: Double]?
 
     enum CodingKeys: String, CodingKey {
         case currentPrice = "current_price"
@@ -85,11 +86,8 @@ struct MarketData: Codable {
         case priceChangePercentage1HInCurrency = "price_change_percentage_1h_in_currency"
         case priceChangePercentage24HInCurrency = "price_change_percentage_24h_in_currency"
         case priceChangePercentage7DInCurrency = "price_change_percentage_7d_in_currency"
-        case priceChangePercentage14DInCurrency = "price_change_percentage_14d_in_currency"
-        case priceChangePercentage30DInCurrency = "price_change_percentage_30d_in_currency"
         case priceChangePercentage60DInCurrency = "price_change_percentage_60d_in_currency"
         case priceChangePercentage200DInCurrency = "price_change_percentage_200d_in_currency"
-        case priceChangePercentage1YInCurrency = "price_change_percentage_1y_in_currency"
         case marketCapChange24HInCurrency = "market_cap_change_24h_in_currency"
         case marketCapChangePercentage24HInCurrency = "market_cap_change_percentage_24h_in_currency"
     }

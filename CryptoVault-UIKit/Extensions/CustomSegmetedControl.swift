@@ -5,7 +5,6 @@
 //  Created by Cuma on 17/05/2023.
 //
 
-
 import UIKit
 
 protocol CustomSegmetedControlDelegate: AnyObject {
@@ -17,22 +16,21 @@ protocol CustomSegmetedControlDelegate: AnyObject {
 }
 
 final class CustomSegmetedControl: UIView {
-    private var verticalContainer: UIView = UIView()
-    private var buttonsContainer: UIStackView = UIStackView()
+    private var verticalContainer = UIView()
+    private var buttonsContainer = UIStackView()
     
     private var buttons: [UIButton] = []
     private var buttonTitles: [String] = []
     
-    private var barView: UIView = UIView()
-    private var barViewLeadingConstraint: NSLayoutConstraint = NSLayoutConstraint()
+    private var barView = UIView()
+    private var barViewLeadingConstraint = NSLayoutConstraint()
     
     weak var delegate: CustomSegmetedControlDelegate?
     private var selectedButtonIndex: Int = 0
     
-    private var elementsTintColor: UIColor = UIColor()
-    private var fontSelected: UIFont = UIFont()
-    private var fontUnselected: UIFont = UIFont()
-    
+    private var elementsTintColor = UIColor()
+    private var fontSelected = UIFont()
+    private var fontUnselected = UIFont()
     
     /// Creates the custom segmented control with segments having the given titles.
     /// - Parameters:
@@ -40,7 +38,11 @@ final class CustomSegmetedControl: UIView {
     ///   - tintColor: The color of the bar and segments.
     ///   - fontSelected: The font of the selected segmented.
     ///   - fontUnselected: The font of the unselected segmented.
-    convenience init(buttonTitles: [String], tintColor: UIColor = .systemPurple, fontSelected: UIFont = .preferredFont(forTextStyle: .body, compatibleWith: .init(legibilityWeight: .bold)), fontUnselected: UIFont = .preferredFont(forTextStyle: .body)) {
+    convenience init(buttonTitles: [String],
+                     tintColor: UIColor = .systemPurple,
+                     fontSelected: UIFont = .preferredFont(forTextStyle: .body,
+                     compatibleWith: .init(legibilityWeight: .bold)),
+                     fontUnselected: UIFont = .preferredFont(forTextStyle: .body)) {
         self.init()
         // Ensures buttonTitles has at least one element to avoid runtime crash
         guard buttonTitles.isEmpty == false else { return }
@@ -83,7 +85,7 @@ final class CustomSegmetedControl: UIView {
     // Creates the buttons from the buttonTitles array
     private func prepareButtons() {
         buttons = buttonTitles.map { title in
-            let button: UIButton = UIButton(type: .system)
+            let button = UIButton(type: .system)
             button.setTitle(title, for: .normal)
             button.tintColor = .black
             button.titleLabel?.font = fontUnselected
@@ -107,9 +109,8 @@ final class CustomSegmetedControl: UIView {
         NSLayoutConstraint.activate([
             buttonsContainer.topAnchor.constraint(equalTo: verticalContainer.topAnchor),
             buttonsContainer.leadingAnchor.constraint(equalTo: verticalContainer.leadingAnchor),
-            buttonsContainer.trailingAnchor.constraint(equalTo: verticalContainer.trailingAnchor),
+            buttonsContainer.trailingAnchor.constraint(equalTo: verticalContainer.trailingAnchor)
         ])
-        
     }
     
     private func prepareBarView() {

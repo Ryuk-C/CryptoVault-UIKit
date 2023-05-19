@@ -12,5 +12,4 @@ enum Languages: String {
     case EN = "en"
     case ES = "es"
     case PT = "pt"
-    
 }

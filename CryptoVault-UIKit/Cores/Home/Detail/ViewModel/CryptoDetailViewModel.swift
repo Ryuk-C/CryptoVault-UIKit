@@ -21,7 +21,7 @@ final class CryptoDetailViewModel {
     private var service = Service()
     private var coreDataManager = CryptoCoreDataManager()
     var cryptoDetailList: [CryptoDetailModel] = []
-    var cryptoId : String?
+    var cryptoId: String?
     
     var usdPrice: Double = 0.0
     var usdPriceChange: Double = 0.0
@@ -31,7 +31,6 @@ final class CryptoDetailViewModel {
     
     var tryPrice: Double = 0.0
     var tryPriceChange: Double = 0.0
-
 }
 
 extension CryptoDetailViewModel: CryptoDetailViewModelProtocol {
@@ -47,14 +46,16 @@ extension CryptoDetailViewModel: CryptoDetailViewModelProtocol {
     }
     
     func checkFav() -> Bool {
-        if coreDataManager.getCryptoCurrencies()?.contains(where: {$0.id == self.cryptoId}) == true {
+        if coreDataManager.getCryptoCurrencies()?.contains(where: {
+            $0.id == self.cryptoId}
+        ) == true {
             return true
-        }else{
+        } else {
+            
             return false
         }
     }
     
-
     func viewDidLoad(id: String) {
         view?.configureVC()
         fetchDetail(id: id)
@@ -77,27 +78,27 @@ extension CryptoDetailViewModel: CryptoDetailViewModelProtocol {
                     
                     for i in self.cryptoDetailList {
                         
-                        if let usd = i.marketData?.currentPrice?["usd"]{
+                        if let usd = i.marketData?.currentPrice?["usd"] {
                             self.usdPrice = usd
                         }
                         
-                        if let usdChange = i.marketData?.priceChangePercentage24HInCurrency?["usd"]{
+                        if let usdChange = i.marketData?.priceChangePercentage24HInCurrency?["usd"] {
                             self.usdPriceChange = usdChange
                         }
                         
-                        if let eur = i.marketData?.currentPrice?["eur"]{
+                        if let eur = i.marketData?.currentPrice?["eur"] {
                             self.eurPrice = eur
                         }
                         
-                        if let eurChange = i.marketData?.priceChangePercentage24HInCurrency?["eur"]{
+                        if let eurChange = i.marketData?.priceChangePercentage24HInCurrency?["eur"] {
                             self.eurPriceChange = eurChange
                         }
                         
-                        if let tryV = i.marketData?.currentPrice?["try"]{
+                        if let tryV = i.marketData?.currentPrice?["try"] {
                             self.tryPrice = tryV
                         }
                         
-                        if let tryChange = i.marketData?.priceChangePercentage24HInCurrency?["try"]{
+                        if let tryChange = i.marketData?.priceChangePercentage24HInCurrency?["try"] {
                             self.tryPriceChange = tryChange
                         }
                     }
@@ -110,9 +111,6 @@ extension CryptoDetailViewModel: CryptoDetailViewModelProtocol {
             case .failure(_):
                 self.view?.dataError()
             }
-
         })
-
     }
-
 }

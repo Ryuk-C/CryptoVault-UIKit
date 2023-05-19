@@ -22,9 +22,9 @@
 		B0095C382A11476000C815A5 /* CryptoDetailScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0095C372A11476000C815A5 /* CryptoDetailScreen.swift */; };
 		B0095C3A2A11477200C815A5 /* CryptoDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0095C392A11477200C815A5 /* CryptoDetailViewModel.swift */; };
 		B0095C3C2A11A95300C815A5 /* CryptoDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0095C3B2A11A95300C815A5 /* CryptoDetailModel.swift */; };
+		B02FC58D2A17B73C005982CA /* SavedNewsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02FC58C2A17B73C005982CA /* SavedNewsViewModel.swift */; };
 		B0559D262A16E4DC00783973 /* SavedCryptoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0559D252A16E4DC00783973 /* SavedCryptoViewModel.swift */; };
 		B0559D282A16E58B00783973 /* CustomCryptoMarketModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0559D272A16E58B00783973 /* CustomCryptoMarketModel.swift */; };
-		B0559D2B2A178DD500783973 /* anim_empty.json in Resources */ = {isa = PBXBuildFile; fileRef = B0559D2A2A178DD500783973 /* anim_empty.json */; };
 		B0682CA82A0EA87600655BA4 /* InfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0682CA72A0EA87600655BA4 /* InfoViewModel.swift */; };
 		B0682CAD2A0EB1ED00655BA4 /* CGFloat+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0682CAC2A0EB1ED00655BA4 /* CGFloat+Ext.swift */; };
 		B0682CAF2A0EB20B00655BA4 /* UIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0682CAE2A0EB20B00655BA4 /* UIHelper.swift */; };
@@ -53,6 +53,7 @@
 		B07C4A8C2A1577C600E77699 /* SavedNewsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07C4A8B2A1577C600E77699 /* SavedNewsScreen.swift */; };
 		B07C4A8F2A1577EA00E77699 /* SavedCryptoScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07C4A8E2A1577EA00E77699 /* SavedCryptoScreen.swift */; };
 		B07C4A922A157C9900E77699 /* CustomSegmetedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07C4A912A157C9900E77699 /* CustomSegmetedControl.swift */; };
+		B0ABD9D22A1797760057AA65 /* anim_empty.json in Resources */ = {isa = PBXBuildFile; fileRef = B0ABD9D12A1797760057AA65 /* anim_empty.json */; };
 		B0C9DB242A13FA2A00033ACD /* CryptoVaultDatabase.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B0C9DB222A13FA2A00033ACD /* CryptoVaultDatabase.xcdatamodeld */; };
 		B0C9DB2B2A13FAFA00033ACD /* CryptoDB+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C9DB272A13FAFA00033ACD /* CryptoDB+CoreDataClass.swift */; };
 		B0C9DB2C2A13FAFA00033ACD /* CryptoDB+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C9DB282A13FAFA00033ACD /* CryptoDB+CoreDataProperties.swift */; };
@@ -82,9 +83,9 @@
 		B0095C372A11476000C815A5 /* CryptoDetailScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoDetailScreen.swift; sourceTree = "<group>"; };
 		B0095C392A11477200C815A5 /* CryptoDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoDetailViewModel.swift; sourceTree = "<group>"; };
 		B0095C3B2A11A95300C815A5 /* CryptoDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoDetailModel.swift; sourceTree = "<group>"; };
+		B02FC58C2A17B73C005982CA /* SavedNewsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedNewsViewModel.swift; sourceTree = "<group>"; };
 		B0559D252A16E4DC00783973 /* SavedCryptoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedCryptoViewModel.swift; sourceTree = "<group>"; };
 		B0559D272A16E58B00783973 /* CustomCryptoMarketModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCryptoMarketModel.swift; sourceTree = "<group>"; };
-		B0559D2A2A178DD500783973 /* anim_empty.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = anim_empty.json; path = "../../../../../Downloads/CryptoVault-SwiftUI/CryptoVault/Lotties/anim_empty.json"; sourceTree = "<group>"; };
 		B0682CA72A0EA87600655BA4 /* InfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewModel.swift; sourceTree = "<group>"; };
 		B0682CAC2A0EB1ED00655BA4 /* CGFloat+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Ext.swift"; sourceTree = "<group>"; };
 		B0682CAE2A0EB20B00655BA4 /* UIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHelper.swift; sourceTree = "<group>"; };
@@ -109,6 +110,7 @@
 		B07C4A8B2A1577C600E77699 /* SavedNewsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedNewsScreen.swift; sourceTree = "<group>"; };
 		B07C4A8E2A1577EA00E77699 /* SavedCryptoScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedCryptoScreen.swift; sourceTree = "<group>"; };
 		B07C4A912A157C9900E77699 /* CustomSegmetedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegmetedControl.swift; sourceTree = "<group>"; };
+		B0ABD9D12A1797760057AA65 /* anim_empty.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = anim_empty.json; sourceTree = "<group>"; };
 		B0C9DB232A13FA2A00033ACD /* CryptoVaultDatabase.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CryptoVaultDatabase.xcdatamodel; sourceTree = "<group>"; };
 		B0C9DB272A13FAFA00033ACD /* CryptoDB+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CryptoDB+CoreDataClass.swift"; sourceTree = "<group>"; };
 		B0C9DB282A13FAFA00033ACD /* CryptoDB+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CryptoDB+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -261,9 +263,26 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		B02FC58E2A17C9A4005982CA /* Screen */ = {
+			isa = PBXGroup;
+			children = (
+				B07C4A8B2A1577C600E77699 /* SavedNewsScreen.swift */,
+			);
+			path = Screen;
+			sourceTree = "<group>";
+		};
+		B02FC58F2A17C9AE005982CA /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				B02FC58C2A17B73C005982CA /* SavedNewsViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		B0559D232A16E4C500783973 /* Screen */ = {
 			isa = PBXGroup;
 			children = (
+				B07C4A8E2A1577EA00E77699 /* SavedCryptoScreen.swift */,
 			);
 			path = Screen;
 			sourceTree = "<group>";
@@ -279,7 +298,7 @@
 		B0559D292A178D5300783973 /* Lotties */ = {
 			isa = PBXGroup;
 			children = (
-				B0559D2A2A178DD500783973 /* anim_empty.json */,
+				B0ABD9D12A1797760057AA65 /* anim_empty.json */,
 			);
 			path = Lotties;
 			sourceTree = "<group>";
@@ -500,7 +519,8 @@
 		B07C4A8A2A1577AB00E77699 /* SavedNews */ = {
 			isa = PBXGroup;
 			children = (
-				B07C4A8B2A1577C600E77699 /* SavedNewsScreen.swift */,
+				B02FC58F2A17C9AE005982CA /* ViewModel */,
+				B02FC58E2A17C9A4005982CA /* Screen */,
 			);
 			path = SavedNews;
 			sourceTree = "<group>";
@@ -510,7 +530,6 @@
 			children = (
 				B0559D242A16E4CC00783973 /* ViewModel */,
 				B0559D232A16E4C500783973 /* Screen */,
-				B07C4A8E2A1577EA00E77699 /* SavedCryptoScreen.swift */,
 			);
 			path = SavedCrypto;
 			sourceTree = "<group>";
@@ -635,7 +654,7 @@
 			files = (
 				2BF579192A0697430073190A /* LaunchScreen.storyboard in Resources */,
 				B06FAE152A083EF600AF25CE /* Library3amsoft.otf in Resources */,
-				B0559D2B2A178DD500783973 /* anim_empty.json in Resources */,
+				B0ABD9D22A1797760057AA65 /* anim_empty.json in Resources */,
 				2BF579162A0697430073190A /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -645,7 +664,7 @@
 /* Begin PBXShellScriptBuildPhase section */
 		B0559D2C2A17954600783973 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 12;
 			files = (
 			);
 			inputFileListPaths = (
@@ -658,7 +677,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif test -d \"/opt/homebrew/bin/\"; then\n  PATH=\"/opt/homebrew/bin/:${PATH}\"\nfi\n\nexport PATH\n\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -674,6 +693,7 @@
 				2BF5790D2A0697410073190A /* AppDelegate.swift in Sources */,
 				B0682CAD2A0EB1ED00655BA4 /* CGFloat+Ext.swift in Sources */,
 				B07C4A922A157C9900E77699 /* CustomSegmetedControl.swift in Sources */,
+				B02FC58D2A17B73C005982CA /* SavedNewsViewModel.swift in Sources */,
 				B0095C382A11476000C815A5 /* CryptoDetailScreen.swift in Sources */,
 				B0095C222A11037800C815A5 /* NetworkManager.swift in Sources */,
 				B06FAE242A08420C00AF25CE /* InfoScreen.swift in Sources */,

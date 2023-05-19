@@ -25,7 +25,6 @@ final class HomeScreen: UIViewController {
         searchBar.placeholder = "Type here to search"
         searchBar.searchBarStyle = .prominent
         return searchBar
-
     }()
 
     private lazy var allCoinsTitle: UILabel = {
@@ -36,7 +35,6 @@ final class HomeScreen: UIViewController {
         label.textColor = .black.withAlphaComponent(0.70)
         label.textAlignment = .center
         return label
-
     }()
 
     private var collectionView: UICollectionView!
@@ -49,13 +47,12 @@ final class HomeScreen: UIViewController {
 
         viewModel.view = self
         viewModel.viewDidLoad()
-
     }
 
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         self.tabBarController?.tabBar.isHidden = false
     }
-
 }
 
 extension HomeScreen: HomeScreenDelegate {
@@ -89,7 +86,6 @@ extension HomeScreen: HomeScreenDelegate {
 
             make.centerX.equalTo(view.snp.centerX)
             make.centerY.equalTo(view.snp.centerY)
-
         }
 
         allCoinsTitle.translatesAutoresizingMaskIntoConstraints = false
@@ -98,9 +94,7 @@ extension HomeScreen: HomeScreenDelegate {
 
             make.top.equalTo(searchBar.snp.bottom).offset(10)
             make.leading.equalTo(view.snp.leading).offset(15)
-
         }
-
     }
 
     func setLoading(isLoading: Bool) {
@@ -109,7 +103,6 @@ extension HomeScreen: HomeScreenDelegate {
         } else {
             self.activityIndicator.stopAnimating()
         }
-
     }
 
     func dataError() {
@@ -131,7 +124,6 @@ extension HomeScreen: HomeScreenDelegate {
             make.leading.equalTo(view.snp.leading)
             make.trailing.equalTo(view.snp.trailing)
             make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
-
         }
     }
 
@@ -154,10 +146,12 @@ extension HomeScreen: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 
         return viewModel.cryptoList.count
-
     }
 
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        cellForItemAt indexPath: IndexPath
+    ) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(
             withReuseIdentifier: CryptoCurrencyCell.reuseID, for: indexPath) as! CryptoCurrencyCell
 
@@ -190,6 +184,5 @@ extension HomeScreen: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
 
         viewModel.search(searchText)
-
     }
 }

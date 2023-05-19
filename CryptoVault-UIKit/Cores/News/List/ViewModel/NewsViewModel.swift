@@ -11,7 +11,7 @@ protocol NewsViewModelProtocol {
     var view: NewsScreenDelegate? { get set }
     func viewDidLoad()
     func fetchNews()
-    func navigateToDetailScreen(id: String, url: String, source: String, newsTitle: String, urlToImage: String)
+    func navigateToDetailScreen(id: String, url: String, source: String, newsTitle: String, urlToImage: String, category: String)
 }
 
 final class NewsViewModel {
@@ -19,7 +19,6 @@ final class NewsViewModel {
     weak var view: NewsScreenDelegate?
     private var service = Service()
     var newsList: [Datum] = []
-
 }
 
 extension NewsViewModel: NewsViewModelProtocol {
@@ -48,8 +47,7 @@ extension NewsViewModel: NewsViewModelProtocol {
         })
     }
 
-    func navigateToDetailScreen(id: String, url: String, source: String, newsTitle: String, urlToImage: String) {
-        view?.navigateToDetailScreen(id: id, url: url, source: source, newsTitle: newsTitle, urlToImage: urlToImage)
+    func navigateToDetailScreen(id: String, url: String, source: String, newsTitle: String, urlToImage: String, category: String) {
+        view?.navigateToDetailScreen(id: id, url: url, source: source, newsTitle: newsTitle, urlToImage: urlToImage, category: category)
     }
-
 }
