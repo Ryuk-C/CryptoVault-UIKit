@@ -8,7 +8,6 @@
 import Foundation
 
 protocol HomeViewModelProtocol {
-    var view: HomeScreenDelegate? { get set }
     func viewDidLoad()
     func fetchCryptoList()
     func navigateToDetail(id: String, pageTitle: String, price: String)
@@ -16,9 +15,14 @@ protocol HomeViewModelProtocol {
 
 final class HomeViewModel {
 
-    weak var view: HomeScreenDelegate?
-    private var service = Service()
+    private weak var view: HomeScreenDelegate?
+    private var service: ServiceProtocol
     var cryptoList: [CryptoMarketListElement] = []
+    
+    init(view: HomeScreenDelegate, service: ServiceProtocol = Service.shared) {
+        self.view = view
+        self.service = service
+    }
 }
 
 extension HomeViewModel: HomeViewModelProtocol {
@@ -41,9 +45,10 @@ extension HomeViewModel: HomeViewModelProtocol {
                     self.view?.setLoading(isLoading: false)
                 }
                 
-            case .failure(_):
+            case .failure(let failure):
                 self.view?.setLoading(isLoading: false)
                 self.view?.dataError()
+                print(failure)
             }
         })
     }

@@ -6,7 +6,6 @@
 //
 
 import Alamofire
-import Foundation
 
 protocol ServiceProtocol {
 
@@ -20,7 +19,10 @@ protocol ServiceProtocol {
     func fetchNewsList(language: Languages, completion: @escaping (Result<NewsModel?, AFError>) -> Void)
 }
 
+
 final class Service: ServiceProtocol {
+    
+    static let shared = Service()
 
     func fetchCryptoMarketList(
         currency: Currencies,

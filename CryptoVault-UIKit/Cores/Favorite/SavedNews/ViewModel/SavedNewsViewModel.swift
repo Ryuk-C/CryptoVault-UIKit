@@ -31,7 +31,7 @@ extension SavedNewsViewModel: SavedNewsViewModelProtocol {
     
     func fetchNewsList() {
         
-        self.view?.setLoading(isLoading: false)
+        view?.setLoading(isLoading: true)
         
         savedNewsList = coreDataManager.getNews() ?? []
 
@@ -47,6 +47,10 @@ extension SavedNewsViewModel: SavedNewsViewModelProtocol {
             self.view?.reloadCollectionView()
             view?.setEmptyOrNot(isEmpty: false)
         }
+        
+        view?.setLoading(isLoading: false)
+
+        
     }
     
     func navigateToDetailScreen(id: String, url: String, source: String, newsTitle: String, urlToImage: String, category: String) {

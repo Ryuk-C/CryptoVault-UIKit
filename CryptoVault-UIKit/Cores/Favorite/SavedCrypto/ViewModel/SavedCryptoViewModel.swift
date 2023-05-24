@@ -25,7 +25,7 @@ final class SavedCryptoViewModel {
 }
 
 extension SavedCryptoViewModel: SavedCryptoViewModelProtocol {
-    
+
     func viewDidLoad() {
         view?.configureVC()
         fetchSavedCryptoList()

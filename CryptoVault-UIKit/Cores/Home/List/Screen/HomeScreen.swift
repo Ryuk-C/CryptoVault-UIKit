@@ -40,12 +40,11 @@ final class HomeScreen: UIViewController {
     private var collectionView: UICollectionView!
     private lazy var activityIndicator = UIActivityIndicatorView()
 
-    let viewModel = HomeViewModel()
+    private lazy var viewModel = HomeViewModel(view: self)
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        viewModel.view = self
         viewModel.viewDidLoad()
     }
 
