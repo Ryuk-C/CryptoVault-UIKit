@@ -8,7 +8,6 @@
 import Foundation
 
 protocol CryptoDetailViewModelProtocol {
-    var view: CryptoDetailScreen? { get set }
     func viewDidLoad(id: String)
     func fetchDetail(id: String)
     func checkFav() -> Bool
@@ -17,9 +16,9 @@ protocol CryptoDetailViewModelProtocol {
 
 final class CryptoDetailViewModel {
 
-    weak var view: CryptoDetailScreen?
-    private var service = Service()
-    private var coreDataManager = CryptoCoreDataManager()
+    private weak var view: CryptoDetailDelegate?
+    private var service: ServiceProtocol
+    private var coreDataManager: CryptoCoreDataManager
     var cryptoDetailList: [CryptoDetailModel] = []
     var cryptoId: String?
     
@@ -31,6 +30,15 @@ final class CryptoDetailViewModel {
     
     var tryPrice: Double = 0.0
     var tryPriceChange: Double = 0.0
+    
+    init(view: CryptoDetailDelegate,
+         service: ServiceProtocol = Service.shared,
+         coreDataManager: CryptoCoreDataManager = CryptoCoreDataManager.shared
+    ) {
+        self.view = view
+        self.service = service
+        self.coreDataManager = coreDataManager
+    }
 }
 
 extension CryptoDetailViewModel: CryptoDetailViewModelProtocol {

@@ -11,7 +11,7 @@ import XCTest
 final class HomeViewModelTests: XCTestCase {
     
     private var viewModel: HomeViewModel!
-    private var view: MockViewController!
+    private var view: MockHomeScreen!
     private var service: MockService!
     
     override func setUp() {
@@ -22,18 +22,22 @@ final class HomeViewModelTests: XCTestCase {
     }
     
     override func tearDown() {
+        
+        view = nil
+        service = nil
+        viewModel = nil
     }
     
     func test_viewDidLoad_InvokesRequiredMethods() {
 
         XCTAssertFalse(view.invokedConfigureVC)
-        XCTAssertFalse(service.invokedFetchMarketList)
+        XCTAssertFalse(service.invokedFetchCryptoMarketList)
         XCTAssertFalse(view.invokedConfigureCollectionView)
 
         viewModel.viewDidLoad()
 
         XCTAssertEqual(view.invokedConfigureVCCount, 1)
-        XCTAssertEqual(service.invokedFetchMarketListCount, 1)
+        XCTAssertEqual(service.invokedFetchCryptoMarketListCount, 1)
         XCTAssertEqual(view.invokedConfigureCollectionViewCount, 1)
     }
     
@@ -44,7 +48,6 @@ final class HomeViewModelTests: XCTestCase {
         viewModel.fetchCryptoList()
         
         XCTAssertEqual(view.invokedSetLoadingCount, 1)
-        
     }
     
     func test_navigateToDetailInvokesRequiredMethods() {

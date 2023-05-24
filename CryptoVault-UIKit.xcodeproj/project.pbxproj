@@ -54,8 +54,10 @@
 		B07C4A8F2A1577EA00E77699 /* SavedCryptoScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07C4A8E2A1577EA00E77699 /* SavedCryptoScreen.swift */; };
 		B07C4A922A157C9900E77699 /* CustomSegmetedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07C4A912A157C9900E77699 /* CustomSegmetedControl.swift */; };
 		B0ABB9A82A1D725400A68573 /* HomeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0ABB9A72A1D725400A68573 /* HomeViewModelTests.swift */; };
-		B0ABB9AA2A1D755500A68573 /* MockHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0ABB9A92A1D755500A68573 /* MockHomeViewController.swift */; };
+		B0ABB9AA2A1D755500A68573 /* MockHomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0ABB9A92A1D755500A68573 /* MockHomeScreen.swift */; };
 		B0ABB9AC2A1D7D6300A68573 /* MockService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0ABB9AB2A1D7D6300A68573 /* MockService.swift */; };
+		B0ABB9B12A1EB86900A68573 /* MockCryptoDetailScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0ABB9B02A1EB86900A68573 /* MockCryptoDetailScreen.swift */; };
+		B0ABB9B32A1EB8FE00A68573 /* CryptoDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0ABB9B22A1EB8FE00A68573 /* CryptoDetailViewModel.swift */; };
 		B0ABD9D22A1797760057AA65 /* anim_empty.json in Resources */ = {isa = PBXBuildFile; fileRef = B0ABD9D12A1797760057AA65 /* anim_empty.json */; };
 		B0C9DB242A13FA2A00033ACD /* CryptoVaultDatabase.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B0C9DB222A13FA2A00033ACD /* CryptoVaultDatabase.xcdatamodeld */; };
 		B0C9DB2B2A13FAFA00033ACD /* CryptoDB+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C9DB272A13FAFA00033ACD /* CryptoDB+CoreDataClass.swift */; };
@@ -125,8 +127,10 @@
 		B07C4A912A157C9900E77699 /* CustomSegmetedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegmetedControl.swift; sourceTree = "<group>"; };
 		B0ABB99C2A1D721100A68573 /* CryptoVault-UIKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "CryptoVault-UIKitTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0ABB9A72A1D725400A68573 /* HomeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelTests.swift; sourceTree = "<group>"; };
-		B0ABB9A92A1D755500A68573 /* MockHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockHomeViewController.swift; sourceTree = "<group>"; };
+		B0ABB9A92A1D755500A68573 /* MockHomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockHomeScreen.swift; sourceTree = "<group>"; };
 		B0ABB9AB2A1D7D6300A68573 /* MockService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockService.swift; sourceTree = "<group>"; };
+		B0ABB9B02A1EB86900A68573 /* MockCryptoDetailScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCryptoDetailScreen.swift; sourceTree = "<group>"; };
+		B0ABB9B22A1EB8FE00A68573 /* CryptoDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoDetailViewModel.swift; sourceTree = "<group>"; };
 		B0ABD9D12A1797760057AA65 /* anim_empty.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = anim_empty.json; sourceTree = "<group>"; };
 		B0C9DB232A13FA2A00033ACD /* CryptoVaultDatabase.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CryptoVaultDatabase.xcdatamodel; sourceTree = "<group>"; };
 		B0C9DB272A13FAFA00033ACD /* CryptoDB+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CryptoDB+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -572,8 +576,8 @@
 		B0ABB99D2A1D721100A68573 /* CryptoVault-UIKitTests */ = {
 			isa = PBXGroup;
 			children = (
+				B0ABB9B42A1EBA8300A68573 /* Service */,
 				B0ABB9A52A1D722600A68573 /* Modules */,
-				B0ABB9AB2A1D7D6300A68573 /* MockService.swift */,
 			);
 			path = "CryptoVault-UIKitTests";
 			sourceTree = "<group>";
@@ -581,6 +585,7 @@
 		B0ABB9A52A1D722600A68573 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				B0ABB9AD2A1EB7FF00A68573 /* News */,
 				B0ABB9A62A1D722E00A68573 /* Home */,
 			);
 			path = Modules;
@@ -589,10 +594,43 @@
 		B0ABB9A62A1D722E00A68573 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				B0ABB9A72A1D725400A68573 /* HomeViewModelTests.swift */,
-				B0ABB9A92A1D755500A68573 /* MockHomeViewController.swift */,
+				B0ABB9AF2A1EB82000A68573 /* Detail */,
+				B0ABB9AE2A1EB81000A68573 /* List */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		B0ABB9AD2A1EB7FF00A68573 /* News */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = News;
+			sourceTree = "<group>";
+		};
+		B0ABB9AE2A1EB81000A68573 /* List */ = {
+			isa = PBXGroup;
+			children = (
+				B0ABB9A72A1D725400A68573 /* HomeViewModelTests.swift */,
+				B0ABB9A92A1D755500A68573 /* MockHomeScreen.swift */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
+		B0ABB9AF2A1EB82000A68573 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				B0ABB9B02A1EB86900A68573 /* MockCryptoDetailScreen.swift */,
+				B0ABB9B22A1EB8FE00A68573 /* CryptoDetailViewModel.swift */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		B0ABB9B42A1EBA8300A68573 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				B0ABB9AB2A1D7D6300A68573 /* MockService.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 		B0C9DB202A13FA0600033ACD /* CoreData */ = {
@@ -823,8 +861,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0ABB9B12A1EB86900A68573 /* MockCryptoDetailScreen.swift in Sources */,
+				B0ABB9B32A1EB8FE00A68573 /* CryptoDetailViewModel.swift in Sources */,
 				B0ABB9A82A1D725400A68573 /* HomeViewModelTests.swift in Sources */,
-				B0ABB9AA2A1D755500A68573 /* MockHomeViewController.swift in Sources */,
+				B0ABB9AA2A1D755500A68573 /* MockHomeScreen.swift in Sources */,
 				B0ABB9AC2A1D7D6300A68573 /* MockService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

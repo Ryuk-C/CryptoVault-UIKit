@@ -19,11 +19,12 @@ protocol ServiceProtocol {
     func fetchNewsList(language: Languages, completion: @escaping (Result<NewsModel?, AFError>) -> Void)
 }
 
-
-final class Service: ServiceProtocol {
-    
+final class Service {
     static let shared = Service()
+}
 
+extension Service: ServiceProtocol {
+    
     func fetchCryptoMarketList(
         currency: Currencies,
         completion: @escaping (Result<CryptoMarketList?, Alamofire.AFError>) -> Void) {
@@ -41,7 +42,7 @@ final class Service: ServiceProtocol {
                 switch response {
                 case .success(let success):
                     completion(.success(success))
-                    
+
                 case .failure(let failure):
                     completion(.failure(failure))
                 }
@@ -58,7 +59,7 @@ final class Service: ServiceProtocol {
                 switch response {
                 case .success(let success):
                     completion(.success(success))
-                    
+
                 case .failure(let failure):
                     completion(.failure(failure))
                 }
@@ -86,7 +87,7 @@ final class Service: ServiceProtocol {
                 switch response {
                 case .success(let success):
                     completion(.success(success))
-                    
+
                 case .failure(let failure):
                     completion(.failure(failure))
                 }
@@ -108,7 +109,7 @@ final class Service: ServiceProtocol {
                 switch response {
                 case .success(let success):
                     completion(.success(success))
-                    
+
                 case .failure(let failure):
                     completion(.failure(failure))
                 }

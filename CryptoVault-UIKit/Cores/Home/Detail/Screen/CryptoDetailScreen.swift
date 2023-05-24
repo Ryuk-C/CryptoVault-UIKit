@@ -21,7 +21,7 @@ final class CryptoDetailScreen: UIViewController {
     var id: String
     var pageTitle: String
     var price: String
-    var viewModel: CryptoDetailViewModel
+    private lazy var viewModel = CryptoDetailViewModel(view: self)
 
     private lazy var horizontalRankStackView: UIStackView = {
 
@@ -410,11 +410,10 @@ final class CryptoDetailScreen: UIViewController {
 
     private lazy var activityIndicator = UIActivityIndicatorView()
 
-    init(id: String, pageTitle: String, price: String, viewModel: CryptoDetailViewModel = CryptoDetailViewModel()) {
+    init(id: String, pageTitle: String, price: String) {
         self.id = id
         self.pageTitle = pageTitle
         self.price = price
-        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -424,7 +423,6 @@ final class CryptoDetailScreen: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel.view = self
         viewModel.viewDidLoad(id: id)
     }
 

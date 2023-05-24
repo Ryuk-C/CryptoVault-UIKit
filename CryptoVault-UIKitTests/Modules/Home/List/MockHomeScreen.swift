@@ -7,7 +7,7 @@
 
 @testable import CryptoVault_UIKit
 
-final class MockViewController: HomeScreenDelegate {
+final class MockHomeScreen: HomeScreenDelegate {
 
     var invokedSetLoading = false
     var invokedSetLoadingCount = 0
