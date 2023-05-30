@@ -29,7 +29,7 @@ extension Service: ServiceProtocol {
         currency: Currencies,
         completion: @escaping (Result<CryptoMarketList?, Alamofire.AFError>) -> Void) {
 
-        let url = Constants.BASE_URL
+        let url = CryptoEndPoints.fetchAllList.url
 
         let parameters: Parameters = [
             "vs_currency": Currency.usd
@@ -51,7 +51,7 @@ extension Service: ServiceProtocol {
 
     func fetchCryptoDetail(id: String, completion: @escaping (Result<CryptoDetailModel?, Alamofire.AFError>) -> Void) {
 
-        let url = Constants.DETAILS_BASE_URL + id
+        let url = CryptoEndPoints.fetchCryptoDetail.url + id
 
         NetworkManager.shared.sendRequest(type: CryptoDetailModel.self, url: url, method: .get, parameters: nil,
             completion: { response in
@@ -71,7 +71,7 @@ extension Service: ServiceProtocol {
         currency: Currency,
         completion: @escaping (Result<CustomCryptoMarketModel?, Alamofire.AFError>) -> Void) {
 
-        let url = Constants.CUSTOM_MARKET_BASE_URL
+        let url = CryptoEndPoints.fetchCustomList.url
 
         let parameters: Parameters = [
             "ids": ids,
@@ -96,10 +96,10 @@ extension Service: ServiceProtocol {
 
     func fetchNewsList(language: Languages, completion: @escaping (Result<NewsModel?, Alamofire.AFError>) -> Void) {
 
-        let url = Constants.NEWS_BASE_URL
+        let url = NewsEndPoints.fetchAllNews.url
 
         let parameters: Parameters = [
-            "Apikey": Constants.NEWS_API_KEY,
+            "Apikey": NewsEndPoints.fetchAllNews.apiKey,
             "lang": language
         ]
 
